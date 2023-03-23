@@ -1,0 +1,15 @@
+{
+  "FolderOrderSettings": [
+    {"name":"Sounds","order":5,"path":"folders/Sounds.yy",},
+    {"name":"Paths","order":1,"path":"folders/Other Assets/Paths.yy",},
+    {"name":"Scripts","order":1,"path":"folders/Scripts.yy",},
+    {"name":"Shaders","order":2,"path":"folders/Other Assets/Shaders.yy",},
+    {"name":"Fonts","order":4,"path":"folders/Other Assets/Fonts.yy",},
+    {"name":"Objects","order":2,"path":"folders/Objects.yy",},
+    {"name":"Rooms","order":3,"path":"folders/Rooms.yy",},
+    {"name":"Sequences","order":3,"path":"folders/Other Assets/Sequences.yy",},
+    {"name":"Notes","order":6,"path":"folders/Notes.yy",},
+    {"name":"Other Assets","order":4,"path":"folders/Other Assets.yy",},
+  ],
+  "ResourceOrderSettings": [],
+}
