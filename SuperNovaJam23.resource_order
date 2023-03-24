@@ -11,5 +11,7 @@
     {"name":"Notes","order":6,"path":"folders/Notes.yy",},
     {"name":"Other Assets","order":4,"path":"folders/Other Assets.yy",},
   ],
-  "ResourceOrderSettings": [],
+  "ResourceOrderSettings": [
+    {"name":"objTest","order":1,"path":"objects/objTest/objTest.yy",},
+  ],
 }
