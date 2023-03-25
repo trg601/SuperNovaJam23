@@ -15,6 +15,7 @@
   "ResourceOrderSettings": [
     {"name":"sprSpitProjectile","order":7,"path":"sprites/sprSpitProjectile/sprSpitProjectile.yy",},
     {"name":"place_move_extended","order":1,"path":"scripts/place_move_extended/place_move_extended.yy",},
+    {"name":"utilities","order":3,"path":"scripts/utilities/utilities.yy",},
     {"name":"objPlayer","order":2,"path":"objects/objPlayer/objPlayer.yy",},
     {"name":"objSlopeTest","order":4,"path":"objects/objSlopeTest/objSlopeTest.yy",},
     {"name":"objCamera","order":1,"path":"objects/objCamera/objCamera.yy",},

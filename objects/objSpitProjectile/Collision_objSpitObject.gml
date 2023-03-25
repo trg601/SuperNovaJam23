@@ -1,11 +1,9 @@
-if ySpeed < 0
-	ySpeed = other.globBounceForce * 0.5
-else {
-	var jumpFactor = max(abs(ySpeed) / global.terminalVelocity, 0.6)
-	ySpeed = -other.globBounceForce * jumpFactor
-		
-	var angle = other.angle
-	if (angle == 90 || angle == -90) && abs(x - other.x) < 40
-		angle = 0
-	xSpeed = 0.5 * jumpFactor * lengthdir_x(other.globBounceForce, angle + 90)
-}
+
+if alarm[0] > 0 exit
+alarm[0] = 5
+
+var myangle = point_direction(0, 0, xSpeed, ySpeed)
+var angle = reflect_angle(myangle, other.angle)
+var spd = point_distance(0, 0, xSpeed, ySpeed)
+xSpeed = lengthdir_x(spd, angle)
+ySpeed = lengthdir_y(spd, angle)
