@@ -8,3 +8,4 @@ room = global.roomGoto
 //Global setup
 global.freezeInput = false
 global.worldGravity = 1 
+global.terminalVelocity = 30

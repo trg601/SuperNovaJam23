@@ -21,6 +21,10 @@ x = follow.x
 y = follow.y
 xto = x
 yto = y
+boundLeft = 0
+boundRight = 0
+boundTop = 0
+boundBottom = 0
 
 view_camera[0] = camera
 view_enabled = true

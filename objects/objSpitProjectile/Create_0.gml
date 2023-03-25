@@ -1,0 +1,5 @@
+#macro PROJECTILE_SPEED 30
+#macro PROJECTILE_GRAVITY_MOD 0.6
+
+xSpeed = 0
+ySpeed = 0
