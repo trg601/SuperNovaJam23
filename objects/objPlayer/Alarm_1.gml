@@ -1,3 +1,3 @@
-///@desc Reset speed modifier
+///@desc jump button leeway
 
-speedMod = 1
+pressedJump = false

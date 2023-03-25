@@ -1,13 +1,18 @@
 
 instance_create_layer(0, 0, "Instances", objCamera)
 
+inputX = 0
+pressedJump = false
+jumpLeeway = 15 //number of frames to show jump is pressed
+holdJump = false
+holdSpit = false
+
 moveSpeed = 12
 accelSpeed = 2
 deaccelSpeed = 2
 speedMod = 1 //automatically reset after every step
 
 jumpVelocity = -15
-globBounceForce = 30
 coyoteTime = 10
 justJumped = false
 

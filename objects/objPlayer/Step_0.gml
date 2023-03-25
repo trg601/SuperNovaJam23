@@ -1,11 +1,17 @@
 
 //Input
-var inputX = 0, pressJump = false, holdSpit = false
+inputX = 0
+holdJump = false
+holdSpit = false
 if !global.freezeInput {
 	if keyboard_check(ord("D")) inputX = 1
 	if keyboard_check(ord("A")) inputX = -1
-	if keyboard_check(vk_space) pressJump = true
+	if keyboard_check(vk_space) holdJump = true
 	if mouse_check_button(mb_left) holdSpit = true
+	if keyboard_check_pressed(vk_space) {
+		pressedJump = true
+		alarm[1] = jumpLeeway
+	}
 }
 
 #region Movement
@@ -17,12 +23,12 @@ if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 	ySpeed = 0
 }
 
-if pressJump && (onGround || alarm[0] > 0) {
+if pressedJump && (onGround || alarm[0] > 0) {
 	ySpeed = jumpVelocity
 	justJumped = true
 }
 
-if justJumped && ySpeed < 0 && !pressJump{
+if justJumped && ySpeed < 0 && !holdJump{
 	ySpeed*=0.90
 }
 
@@ -37,9 +43,9 @@ else if xSpeed != 0{ //deaccelerate x
 }
 
 if onGround {
-	if place_meeting(x + xSpeed, y, parPushable) {
+	if place_meeting(x + xSpeed, y - 15, parPushable) {
 		//Push object
-		var ins = instance_place(x + xSpeed, y, parPushable);
+		var ins = instance_place(x + xSpeed, y - 15, parPushable);
 		if ins.pushable && ((x < ins.bbox_left && xSpeed > 0) || (x > ins.bbox_right && xSpeed < 0)) {
 			speedMod = push_pushable_object(ins, xSpeed, true)
 		}

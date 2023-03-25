@@ -1,5 +1,8 @@
 event_inherited()
 
+globBounceForce = 30
+
+
 ySpeed = 0
 angle = 0
 leftY = 0
