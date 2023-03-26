@@ -66,7 +66,7 @@ case playerState.NORMAL: {
 	//Enter grapple state
 	if pressedGrapple && alarm[2] == -1 {
 		var angle = point_direction(x, y, mouse_x, mouse_y)
-		raycast = get_raycast(x, y, angle, 1000)
+		raycast = get_raycast(x, y, angle, 1500)
 		if !is_undefined(raycast) && (angle < 225 || angle > 315) {
 			alarm[2] = 30
 			pressedGrapple = false

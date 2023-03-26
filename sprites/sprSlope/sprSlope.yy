@@ -1,9 +1,9 @@
 {
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
-  "name": "sprSlopeTest",
+  "name": "sprSlope",
   "bbox_bottom": 127,
-  "bbox_left": 1,
+  "bbox_left": 0,
   "bbox_right": 127,
   "bbox_top": 0,
   "bboxMode": 0,
@@ -32,7 +32,7 @@
   "sequence": {
     "resourceType": "GMSequence",
     "resourceVersion": "1.4",
-    "name": "sprSlopeTest",
+    "name": "sprSlope",
     "autoRecord": true,
     "backdropHeight": 768,
     "backdropImageOpacity": 0.5,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c8869598-4e72-4f3f-b0d7-8cd2b470151d","path":"sprites/sprSlopeTest/sprSlopeTest.yy",},},},"Disabled":false,"id":"1606ea56-a413-4205-8b7b-5777ca74325e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c8869598-4e72-4f3f-b0d7-8cd2b470151d","path":"sprites/sprSlope/sprSlope.yy",},},},"Disabled":false,"id":"1606ea56-a413-4205-8b7b-5777ca74325e","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
