@@ -34,6 +34,7 @@
     "IDEVersion": "2023.2.1.75",
   },
   "resources": [
+    {"id":{"name":"draw_line_textured","path":"scripts/draw_line_textured/draw_line_textured.yy",},},
     {"id":{"name":"sprSpitProjectile","path":"sprites/sprSpitProjectile/sprSpitProjectile.yy",},},
     {"id":{"name":"place_move_extended","path":"scripts/place_move_extended/place_move_extended.yy",},},
     {"id":{"name":"_avoid_code_lint","path":"scripts/_avoid_code_lint/_avoid_code_lint.yy",},},
@@ -45,6 +46,7 @@
     {"id":{"name":"parSlope","path":"objects/parSlope/parSlope.yy",},},
     {"id":{"name":"parSolid","path":"objects/parSolid/parSolid.yy",},},
     {"id":{"name":"tileset1","path":"tilesets/tileset1/tileset1.yy",},},
+    {"id":{"name":"sprSpitRope","path":"sprites/sprSpitRope/sprSpitRope.yy",},},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"parPushable","path":"objects/parPushable/parPushable.yy",},},
     {"id":{"name":"sprSplatterTileTest","path":"sprites/sprSplatterTileTest/sprSplatterTileTest.yy",},},
