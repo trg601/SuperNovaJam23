@@ -39,6 +39,7 @@
     {"id":{"name":"objGame","path":"objects/objGame/objGame.yy",},},
     {"id":{"name":"utilities","path":"scripts/utilities/utilities.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
+    {"id":{"name":"objRaycast","path":"objects/objRaycast/objRaycast.yy",},},
     {"id":{"name":"game_init","path":"scripts/game_init/game_init.yy",},},
     {"id":{"name":"objSlopeTest","path":"objects/objSlopeTest/objSlopeTest.yy",},},
     {"id":{"name":"parSolid","path":"objects/parSolid/parSolid.yy",},},

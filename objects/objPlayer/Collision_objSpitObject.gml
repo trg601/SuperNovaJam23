@@ -1,5 +1,11 @@
 
-if !onGround { //Bounce off
+if state == playerState.SWING {
+	if x < other.x
+		swingVelocity -= 5
+	else
+		swingVelocity += 5
+}
+else if !onGround { //Bounce off
 	if bbox_bottom > other.bbox_bottom
 		ySpeed = other.globBounceForce * 0.5
 	else if ySpeed > 0 {

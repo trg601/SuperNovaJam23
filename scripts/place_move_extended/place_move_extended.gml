@@ -1,16 +1,17 @@
 
 #macro NUMBER_OF_PIXELS_CONSIDERED_SLOPE 5
 
+
 function place_move_x(deltaX, onGround=false){
 	var collide = false
 	if deltaX == 0 return collide
 	
 	var n = 1, basespd = deltaX, ts = sign(deltaX), ta = abs(deltaX)
-	if ta > 32{ //Allow stupidly high speeds without warping through solids
+	if ta > 32 { //Allow stupidly high speeds without warping through solids
 	    basespd = ts * 32
 	    n = ta mod 32
 	}
-	repeat(n){
+	repeat(n) {
 	    if !place_meeting(x + basespd, y, parSolid)
 	        x += basespd
 	    else {
