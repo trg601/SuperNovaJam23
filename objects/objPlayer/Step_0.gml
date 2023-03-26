@@ -1,12 +1,15 @@
 
 //Input
-inputX = 0holdJump = false
+inputX = 0
+holdJump = false
 holdSpit = false
+pressedGrapple = false
 if !global.freezeInput {
 	if keyboard_check(ord("D")) inputX = 1
 	if keyboard_check(ord("A")) inputX = -1
 	if keyboard_check(vk_space) holdJump = true
 	if mouse_check_button(mb_left) holdSpit = true
+	if mouse_check_button_released(mb_right) pressedGrapple = true
 	if keyboard_check_pressed(vk_space) {
 		pressedJump = true
 		alarm[1] = jumpLeeway
@@ -23,7 +26,6 @@ if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 
 //State handling
 switch (state) {
-#region Normal Movement State
 case playerState.NORMAL: {
 
 	if pressedJump && (onGround || alarm[0] > 0) {
@@ -62,25 +64,23 @@ case playerState.NORMAL: {
 	}
 	
 	//Enter grapple state
-	if mouse_check_button_released(mb_right) {
-		state = playerState.SWING
-		raycast = get_raycast(x, y, point_direction(x, y, mouse_x, mouse_y))
-		if !is_undefined(raycast) {
+	if pressedGrapple && alarm[2] == -1 {
+		var angle = point_direction(x, y, mouse_x, mouse_y)
+		raycast = get_raycast(x, y, angle, 1000)
+		if !is_undefined(raycast) && (angle < 225 || angle > 315) {
+			alarm[2] = 30
+			pressedGrapple = false
+			state = playerState.SWING
 			grappleX = raycast.x
 			grappleY = raycast.y
 			swingVelocity = 0
-			swingAngle = point_direction(grappleX, grappleY, x, y)
 			swingLength = point_distance(grappleX, grappleY, x, y)
-			image_blend = c_white
 		}
 	}
 	
 } break
-#endregion
 
-#region Grapple/Swing State
 case playerState.SWING: {
-	onGround = false
 	
 	swingAngle = point_direction(grappleX, grappleY, x, y)
 	var angleAccel = -swingAccelSpeed * dcos(swingAngle)
@@ -100,18 +100,26 @@ case playerState.SWING: {
 		place_move_y(lengthdir_y(diff, angle))
 	}
 	
-	if inputX != 0 { //accelerate x
-		swingVelocity += inputX * swingVelocityInputMod
-	}
-	
-	if pressedJump {
+	//break rope if conditions are met
+	if swingLength < 100 || (swingAngle > 45 && swingAngle < 135)
 		state = playerState.NORMAL
-		ySpeed = jumpVelocity * 1.75
-		justJumped = false
+	
+	//accelerate x
+	if inputX != 0
+		swingVelocity += inputX * swingVelocityInputMod
+	
+	if pressedJump || pressedGrapple {
+		state = playerState.NORMAL
+		if alarm[2] == -1 {
+			var val = min(abs(angle_difference(swingAngle, 270)) / 60, 1)
+			kxSpeed = clamp(xSpeed, -20, 20)
+			xSpeed = 0
+			ySpeed = val * swingJumpVelocity
+			justJumped = false
+		}
 	}
 	
 } break
-#endregion
 
 default: show_error("Unknown state!", true)
 }

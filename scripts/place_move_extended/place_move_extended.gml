@@ -33,7 +33,7 @@ function place_move_x(deltaX, onGround=false){
 	if onGround { //Keep object on ground
 		yDist = ta * 2
 		if place_meeting(x, y + yDist, parSolid) || place_meeting_platform(x, yDist) {
-			place_move_y(ta * 2)
+			place_move_y(yDist)
 		}
 	}
 	
