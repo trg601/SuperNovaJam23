@@ -2,6 +2,7 @@
   "FolderOrderSettings": [
     {"name":"Notes","order":6,"path":"folders/Notes.yy",},
     {"name":"Objects","order":2,"path":"folders/Objects.yy",},
+    {"name":"Parents","order":1,"path":"folders/Objects/Parents.yy",},
     {"name":"Other Assets","order":4,"path":"folders/Other Assets.yy",},
     {"name":"Fonts","order":4,"path":"folders/Other Assets/Fonts.yy",},
     {"name":"Paths","order":1,"path":"folders/Other Assets/Paths.yy",},
@@ -10,7 +11,6 @@
     {"name":"Rooms","order":3,"path":"folders/Rooms.yy",},
     {"name":"Scripts","order":1,"path":"folders/Scripts.yy",},
     {"name":"Sounds","order":5,"path":"folders/Sounds.yy",},
-    {"name":"Parents","order":1,"path":"folders/Objects/Parents.yy",},
   ],
   "ResourceOrderSettings": [
     {"name":"sprSpitProjectile","order":7,"path":"sprites/sprSpitProjectile/sprSpitProjectile.yy",},
