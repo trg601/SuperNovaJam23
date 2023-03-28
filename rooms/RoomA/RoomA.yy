@@ -91,6 +91,10 @@
     {"name":"inst_74AE4D18","path":"rooms/RoomA/RoomA.yy",},
     {"name":"inst_2B62481B","path":"rooms/RoomA/RoomA.yy",},
     {"name":"inst_59823FC8","path":"rooms/RoomA/RoomA.yy",},
+    {"name":"inst_62445C8E","path":"rooms/RoomA/RoomA.yy",},
+    {"name":"inst_717F21CB","path":"rooms/RoomA/RoomA.yy",},
+    {"name":"inst_6EB69029","path":"rooms/RoomA/RoomA.yy",},
+    {"name":"inst_6852C9F","path":"rooms/RoomA/RoomA.yy",},
   ],
   "isDnd": false,
   "layers": [

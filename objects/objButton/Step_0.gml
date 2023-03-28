@@ -1,7 +1,7 @@
 event_inherited()
 
 x = -x
-var objOnTop = place_meeting(-x, y - 1, objSpitObject)
+var objOnTop = place_meeting(-x, y - 1, objSpitObject) || place_meeting(-x, y - 1, objPlayer)
 x = -x
 
 if isPressed != objOnTop {
