@@ -35,8 +35,9 @@ swingVelocity = 0
 swingVelocityMod = 8
 swingVelocityInputMod = 0.05
 swingJumpVelocity = jumpVelocity * 2
-
 #endregion
+
+dead = false
 
 enum playerState {
 	NORMAL,
@@ -49,5 +50,5 @@ squishX = 1 //squish factor
 squishY = 1
 
 spitCharge = 0
-spitChargeSpeed = 0.01
+spitChargeSpeed = 0.02
 spitChargeNecessaryToShoot = 0.35

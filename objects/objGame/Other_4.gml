@@ -1,7 +1,14 @@
 //Create new layer to put player and other objects in front
 foregroundLayer = layer_create(-100, "Foreground")
+backgroundLayer = layer_create(150, "Background") //Goes behind tiles
+guiLayer = layer_create(-500, "GuiLayer")
+layer_add_instance(guiLayer, self)
+
 if instance_exists(objPlayer)
 	layer_add_instance(foregroundLayer, instance_find(objPlayer, 0))
+
+//Background objects
+with(objGrate) layer_add_instance(other.backgroundLayer, self)
 
 //Assign particle system to new layer
 part_system_layer(global.particleSystem, foregroundLayer)

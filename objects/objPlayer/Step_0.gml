@@ -192,8 +192,10 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 	if !holdSpit && spitCharge > spitChargeNecessaryToShoot {
 		var spit = instance_create_layer(x, y, "Foreground", objSpitProjectile)
 		var dir = point_direction(x, y, mouse_x, mouse_y)
-		spit.xSpeed = lengthdir_x(PROJECTILE_SPEED * spitCharge, dir)
-		spit.ySpeed = lengthdir_y(PROJECTILE_SPEED * spitCharge, dir)
+		var mouseDist = min(point_distance(x, y, mouse_x, mouse_y) / 400, 1)
+		var dist = PROJECTILE_SPEED * spitCharge * mouseDist
+		spit.xSpeed = lengthdir_x(dist, dir)
+		spit.ySpeed = lengthdir_y(dist, dir)
 		spitCharge = 0
 	}
 } else spitCharge = 0
@@ -201,17 +203,7 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 #endregion
 
 
-if y > room_height room_restart()
-
-if mouse_check_button_pressed(mb_middle) {
-	var dist = 30
-	var segments = point_distance(x, y, mouse_x, mouse_y) div dist
-	var angle = point_direction(x, y, mouse_x, mouse_y)
-	var xx = x, yy = y
-	var lx = lengthdir_x(dist, angle), ly = lengthdir_y(dist, angle)
-	repeat (segments) {
-		part_particles_create(global.particleSystem, xx, yy, global.partBubblePop, 5)
-		xx += lx
-		yy += ly
-	}
+if y > room_height {
+	dead = true
+	instance_destroy()
 }

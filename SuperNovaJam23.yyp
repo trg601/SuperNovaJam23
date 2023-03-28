@@ -54,6 +54,7 @@
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"parPushable","path":"objects/parPushable/parPushable.yy",},},
     {"id":{"name":"sprSplatterTileTest","path":"sprites/sprSplatterTileTest/sprSplatterTileTest.yy",},},
+    {"id":{"name":"sprSpikes","path":"sprites/sprSpikes/sprSpikes.yy",},},
     {"id":{"name":"objGrate","path":"objects/objGrate/objGrate.yy",},},
     {"id":{"name":"push_pushable_object","path":"scripts/push_pushable_object/push_pushable_object.yy",},},
     {"id":{"name":"sprGrappleBlock","path":"sprites/sprGrappleBlock/sprGrappleBlock.yy",},},
@@ -61,6 +62,7 @@
     {"id":{"name":"objGrappleBlock","path":"objects/objGrappleBlock/objGrappleBlock.yy",},},
     {"id":{"name":"objSpitObject","path":"objects/objSpitObject/objSpitObject.yy",},},
     {"id":{"name":"sprSpitObjectMask","path":"sprites/sprSpitObjectMask/sprSpitObjectMask.yy",},},
+    {"id":{"name":"objSpikes","path":"objects/objSpikes/objSpikes.yy",},},
     {"id":{"name":"parPushableSolid","path":"objects/parPushableSolid/parPushableSolid.yy",},},
     {"id":{"name":"sprSpitObject","path":"sprites/sprSpitObject/sprSpitObject.yy",},},
     {"id":{"name":"sprPlayerMask","path":"sprites/sprPlayerMask/sprPlayerMask.yy",},},
@@ -70,6 +72,7 @@
     {"id":{"name":"sprSolid","path":"sprites/sprSolid/sprSolid.yy",},},
     {"id":{"name":"sprSlope","path":"sprites/sprSlope/sprSlope.yy",},},
     {"id":{"name":"sprGhostBlock","path":"sprites/sprGhostBlock/sprGhostBlock.yy",},},
+    {"id":{"name":"parHazard","path":"objects/parHazard/parHazard.yy",},},
     {"id":{"name":"sprPlayer","path":"sprites/sprPlayer/sprPlayer.yy",},},
     {"id":{"name":"objSpitProjectile","path":"objects/objSpitProjectile/objSpitProjectile.yy",},},
     {"id":{"name":"sprBackground","path":"sprites/sprBackground/sprBackground.yy",},},
@@ -77,8 +80,8 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
   ],
   "TextureGroups": [

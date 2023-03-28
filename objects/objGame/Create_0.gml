@@ -13,10 +13,14 @@ global.tileSize = 128
 global.spitColor = make_color_rgb(71, 255, 231)
 
 foregroundLayer = -1
+backgroundLayer = -1
+guiLayer = -1
 sprTileLayer = -1
 global.particleSystem  = part_system_create_layer("Instances", true)
 
-//Particle definition
+#region Particle definition
+
+//Bubble pop
 var p = part_type_create()
 part_type_shape(p, pt_shape_sphere)
 part_type_size(p, 0.2, 0.5, -0.01, 0)
@@ -25,8 +29,23 @@ part_type_direction(p, 0, 360, 0, 0)
 part_type_orientation(p, 0, 360, 0, 0, 0)
 part_type_life(p, 15, 25)
 part_type_color1(p, global.spitColor)
-
 global.partBubblePop = p
+
+//Player death
+var p = part_type_create()
+part_type_shape(p, pt_shape_sphere)
+part_type_size(p, 0.7, 2, -0.05, 0)
+part_type_speed(p, 1, 4, 0, 0)
+part_type_direction(p, 0, 360, 0, 0)
+part_type_orientation(p, 0, 360, 0, 0, 0)
+part_type_life(p, 40, 50)
+part_type_color1(p, global.spitColor)
+global.partPlayerDeath = p
+
+
+#endregion
+
+
 
 //Create dynamic sprites from tilemap
 tile_sprite_map = ds_map_create()

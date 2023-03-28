@@ -16,9 +16,9 @@ var pm = matrix_build_projection_ortho(global.viewWidth, global.viewHeight, 1, 1
 camera_set_view_mat(camera, vm)
 camera_set_proj_mat(camera, pm)
 
-follow = objPlayer
-x = follow.x
-y = follow.y
+followPlayer = true
+x = objPlayer.x
+y = objPlayer.y
 xto = x
 yto = y
 boundLeft = 0
