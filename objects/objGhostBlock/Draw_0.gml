@@ -1,0 +1,1 @@
+draw_sprite(mySprite, imgIndex, x, y)

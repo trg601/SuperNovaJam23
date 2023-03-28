@@ -11,6 +11,7 @@ global.worldGravity = 1
 global.terminalVelocity = 30
 global.tileSize = 128
 
+foregroundLayer = -1
 sprTileLayer = -1
 
 //Create dynamic sprites from tilemap

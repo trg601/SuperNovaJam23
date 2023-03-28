@@ -1,5 +1,9 @@
-///@desc Set up splatter tiles
+//Create new layer to put player and other objects in front
+foregroundLayer = layer_create(-100, "Foreground")
+if instance_exists(objPlayer)
+	layer_add_instance(foregroundLayer, instance_find(objPlayer, 0))
 
+//Set up splatter tiles
 if layer_exists("Tiles_1") {
 
 	var lay_id = layer_get_id("Tiles_1")

@@ -172,7 +172,7 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 	spitCharge = min(spitCharge, 1)
 	
 	if !holdSpit && spitCharge > spitChargeNecessaryToShoot {
-		var spit = instance_create_layer(x, y, "Instances", objSpitProjectile)
+		var spit = instance_create_layer(x, y, "Foreground", objSpitProjectile)
 		var dir = point_direction(x, y, mouse_x, mouse_y)
 		spit.xSpeed = lengthdir_x(PROJECTILE_SPEED * spitCharge, dir)
 		spit.ySpeed = lengthdir_y(PROJECTILE_SPEED * spitCharge, dir)
