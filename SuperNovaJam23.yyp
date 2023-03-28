@@ -40,6 +40,7 @@
     {"id":{"name":"place_move_extended","path":"scripts/place_move_extended/place_move_extended.yy",},},
     {"id":{"name":"_avoid_code_lint","path":"scripts/_avoid_code_lint/_avoid_code_lint.yy",},},
     {"id":{"name":"objGame","path":"objects/objGame/objGame.yy",},},
+    {"id":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
     {"id":{"name":"utilities","path":"scripts/utilities/utilities.yy",},},
     {"id":{"name":"objPlayer","path":"objects/objPlayer/objPlayer.yy",},},
     {"id":{"name":"objRaycast","path":"objects/objRaycast/objRaycast.yy",},},
@@ -74,6 +75,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
   ],

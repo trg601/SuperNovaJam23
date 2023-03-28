@@ -66,7 +66,7 @@ case playerState.NORMAL: {
 	//Enter grapple state
 	if pressedGrapple && alarm[2] == -1 {
 		var angle = point_direction(x, y, mouse_x, mouse_y)
-		var raycast = get_raycast(x, y, angle, 1500)
+		var raycast = get_raycast(x, y, angle, 1500)  
 		var hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
 		
 		//Still grapple on if you miss it by about one and a half blocks

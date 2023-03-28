@@ -18,6 +18,7 @@
     {"name":"sprButton","order":13,"path":"sprites/sprButton/sprButton.yy",},
     {"name":"place_move_extended","order":1,"path":"scripts/place_move_extended/place_move_extended.yy",},
     {"name":"_avoid_code_lint","order":4,"path":"scripts/_avoid_code_lint/_avoid_code_lint.yy",},
+    {"name":"RoomA","order":2,"path":"rooms/RoomA/RoomA.yy",},
     {"name":"utilities","order":3,"path":"scripts/utilities/utilities.yy",},
     {"name":"objPlayer","order":2,"path":"objects/objPlayer/objPlayer.yy",},
     {"name":"objRaycast","order":2,"path":"objects/objRaycast/objRaycast.yy",},
