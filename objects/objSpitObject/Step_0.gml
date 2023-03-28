@@ -1,11 +1,9 @@
 
-if angle != 180 {
-	if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
-		ySpeed = 0
-	} else {
-		ySpeed += global.worldGravity
-		ySpeed = min(ySpeed, global.terminalVelocity)
-	
-		if place_move_y(ySpeed) event_user(0)
-	}
+event_inherited()
+
+if collideY event_user(0)
+
+//Destroy if it isn't held on by anything
+if !pushable && !place_meeting(x, y, parSolid) {
+	instance_destroy()
 }

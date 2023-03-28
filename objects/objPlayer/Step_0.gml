@@ -1,12 +1,15 @@
 
 //Input
-inputX = 0holdJump = false
+inputX = 0
+holdJump = false
 holdSpit = false
+pressedGrapple = false
 if !global.freezeInput {
 	if keyboard_check(ord("D")) inputX = 1
 	if keyboard_check(ord("A")) inputX = -1
 	if keyboard_check(vk_space) holdJump = true
 	if mouse_check_button(mb_left) holdSpit = true
+	if mouse_check_button_released(mb_right) pressedGrapple = true
 	if keyboard_check_pressed(vk_space) {
 		pressedJump = true
 		alarm[1] = jumpLeeway
@@ -23,7 +26,6 @@ if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 
 //State handling
 switch (state) {
-#region Normal Movement State
 case playerState.NORMAL: {
 
 	if pressedJump && (onGround || alarm[0] > 0) {
@@ -48,7 +50,7 @@ case playerState.NORMAL: {
 	if onGround {
 		if place_meeting(x + xSpeed, y - 15, parPushable) {
 			//Push object
-			var ins = instance_place(x + xSpeed, y - 15, parPushable);
+			var ins = instance_place(x + xSpeed, y - 15, parPushable)
 			if ins.pushable && ((x < ins.bbox_left && xSpeed > 0) || (x > ins.bbox_right && xSpeed < 0)) {
 				speedMod = push_pushable_object(ins, xSpeed, true)
 			}
@@ -62,25 +64,36 @@ case playerState.NORMAL: {
 	}
 	
 	//Enter grapple state
-	if mouse_check_button_released(mb_right) {
-		state = playerState.SWING
-		raycast = get_raycast(x, y, point_direction(x, y, mouse_x, mouse_y))
-		if !is_undefined(raycast) {
+	if pressedGrapple && alarm[2] == -1 {
+		var angle = point_direction(x, y, mouse_x, mouse_y)
+		var raycast = get_raycast(x, y, angle, 1500)
+		var hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
+		
+		//Still grapple on if you miss it by about one and a half blocks
+		if !hitGrappleBlock && !is_undefined(raycast) {
+			var nearest = instance_nearest(raycast.x, raycast.y, objGrappleBlock)
+			var xx = nearest.bbox_left + (nearest.bbox_right - nearest.bbox_left) / 2
+			var yy = nearest.bbox_bottom
+			if point_distance(raycast.x, raycast.y, xx, yy) < global.tileSize * 2 {
+				raycast = get_raycast(x, y, point_direction(x, y, xx, yy), 1500)	
+				hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
+			}
+		}
+		
+		if hitGrappleBlock && (angle < 225 || angle > 315) {
+			alarm[2] = 30
+			pressedGrapple = false
+			state = playerState.SWING
 			grappleX = raycast.x
 			grappleY = raycast.y
 			swingVelocity = 0
-			swingAngle = point_direction(grappleX, grappleY, x, y)
 			swingLength = point_distance(grappleX, grappleY, x, y)
-			image_blend = c_white
 		}
 	}
 	
 } break
-#endregion
 
-#region Grapple/Swing State
 case playerState.SWING: {
-	onGround = false
 	
 	swingAngle = point_direction(grappleX, grappleY, x, y)
 	var angleAccel = -swingAccelSpeed * dcos(swingAngle)
@@ -100,18 +113,26 @@ case playerState.SWING: {
 		place_move_y(lengthdir_y(diff, angle))
 	}
 	
-	if inputX != 0 { //accelerate x
-		swingVelocity += inputX * swingVelocityInputMod
-	}
-	
-	if pressedJump {
+	//break rope if conditions are met
+	if swingLength < 100 || (swingAngle > 45 && swingAngle < 135)
 		state = playerState.NORMAL
-		ySpeed = jumpVelocity * 1.75
-		justJumped = false
+	
+	//accelerate x
+	if inputX != 0
+		swingVelocity += inputX * swingVelocityInputMod
+	
+	if pressedJump || pressedGrapple {
+		state = playerState.NORMAL
+		if alarm[2] == -1 {
+			var val = min(abs(angle_difference(swingAngle, 270)) / 60, 1)
+			kxSpeed = clamp(xSpeed, -20, 20)
+			xSpeed = 0
+			ySpeed = val * swingJumpVelocity
+			justJumped = false
+		}
 	}
 	
 } break
-#endregion
 
 default: show_error("Unknown state!", true)
 }
@@ -151,7 +172,7 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 	spitCharge = min(spitCharge, 1)
 	
 	if !holdSpit && spitCharge > spitChargeNecessaryToShoot {
-		var spit = instance_create_layer(x, y, "Instances", objSpitProjectile)
+		var spit = instance_create_layer(x, y, "Foreground", objSpitProjectile)
 		var dir = point_direction(x, y, mouse_x, mouse_y)
 		spit.xSpeed = lengthdir_x(PROJECTILE_SPEED * spitCharge, dir)
 		spit.ySpeed = lengthdir_y(PROJECTILE_SPEED * spitCharge, dir)
@@ -160,3 +181,6 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 } else spitCharge = 0
 
 #endregion
+
+
+if y > room_height room_restart()

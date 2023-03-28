@@ -1,8 +1,7 @@
 
 if state == playerState.SWING {
-	draw_line(x, y, grappleX, grappleY)	
+	draw_line_textured(sprSpitRope, x, y, grappleX, grappleY)
 }
-
 
 image_xscale = faceX * squishX
 image_yscale = squishY

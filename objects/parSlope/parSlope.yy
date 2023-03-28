@@ -1,13 +1,13 @@
 {
   "resourceType": "GMObject",
   "resourceVersion": "1.0",
-  "name": "objSlopeTest",
+  "name": "parSlope",
   "eventList": [],
   "managed": true,
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Parents",
+    "path": "folders/Objects/Parents.yy",
   },
   "parentObjectId": {
     "name": "parSolid",
@@ -29,9 +29,9 @@
   "properties": [],
   "solid": false,
   "spriteId": {
-    "name": "sprSlopeTest",
-    "path": "sprites/sprSlopeTest/sprSlopeTest.yy",
+    "name": "sprSlope",
+    "path": "sprites/sprSlope/sprSlope.yy",
   },
   "spriteMaskId": null,
-  "visible": true,
+  "visible": false,
 }

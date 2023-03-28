@@ -5,8 +5,8 @@ function reflect_angle(incidenceAngle, surfaceAngle) {
 	return a >= 360 ? a - 360 : (a < 0 ? a + 360 : a)
 }
 
-function get_raycast(startX, startY, dir) {
-	var n = 1000 / 32, xx = startX, yy = startY
+function get_raycast(startX, startY, dir, range) {
+	var n = range / 32, xx = startX, yy = startY
 	var ldx = lengthdir_x(32, dir), ldy = lengthdir_y(32, dir)
 	repeat(n) {
 		if collision_point(xx + ldx, yy + ldy, parSolid, 1, 0) {

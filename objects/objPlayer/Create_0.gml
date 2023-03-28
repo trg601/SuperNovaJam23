@@ -7,6 +7,7 @@ pressedJump = false
 jumpLeeway = 15 //number of frames to say jump button is pressed (for bouncing)
 holdJump = false
 holdSpit = false
+pressedGrapple = false
 
 moveSpeed = 12
 accelSpeed = 2
@@ -32,6 +33,7 @@ swingAngle = 0
 swingVelocity = 0
 swingVelocityMod = 8
 swingVelocityInputMod = 0.05
+swingJumpVelocity = jumpVelocity * 2
 
 #endregion
 
