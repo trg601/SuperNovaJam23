@@ -52,3 +52,16 @@ squishY = 1
 spitCharge = 0
 spitChargeSpeed = 0.02
 spitChargeNecessaryToShoot = 0.35
+
+
+#region Gamepad
+gamepadAxisDeadZone = 0.25
+recticleX = 0
+recticleY = 0
+recticleMinDistance = 100
+recticleDistance = 100
+recticleActive = false
+useGPRecticle = false
+mouse_xprev = -1
+mouse_yprev = -1
+#endregion
