@@ -31,4 +31,9 @@ if angle == 0 {
 if place_meeting_platform(0, 1) angle = 0
 
 pushable = true
-if angle > 90 && angle < 270 pushable = false
+effectedByGravity = true
+if angle > 90 && angle < 270 {
+	pushable = false
+	effectedByGravity = false
+	ySpeed = 0
+}

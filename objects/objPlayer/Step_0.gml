@@ -50,7 +50,7 @@ case playerState.NORMAL: {
 	if onGround {
 		if place_meeting(x + xSpeed, y - 15, parPushable) {
 			//Push object
-			var ins = instance_place(x + xSpeed, y - 15, parPushable);
+			var ins = instance_place(x + xSpeed, y - 15, parPushable)
 			if ins.pushable && ((x < ins.bbox_left && xSpeed > 0) || (x > ins.bbox_right && xSpeed < 0)) {
 				speedMod = push_pushable_object(ins, xSpeed, true)
 			}
@@ -66,8 +66,21 @@ case playerState.NORMAL: {
 	//Enter grapple state
 	if pressedGrapple && alarm[2] == -1 {
 		var angle = point_direction(x, y, mouse_x, mouse_y)
-		raycast = get_raycast(x, y, angle, 1500)
-		if !is_undefined(raycast) && (angle < 225 || angle > 315) {
+		var raycast = get_raycast(x, y, angle, 1500)
+		var hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
+		
+		//Still grapple on if you miss it by about one and a half blocks
+		if !hitGrappleBlock && !is_undefined(raycast) {
+			var nearest = instance_nearest(raycast.x, raycast.y, objGrappleBlock)
+			var xx = nearest.bbox_left + (nearest.bbox_right - nearest.bbox_left) / 2
+			var yy = nearest.bbox_bottom
+			if point_distance(raycast.x, raycast.y, xx, yy) < global.tileSize * 2 {
+				raycast = get_raycast(x, y, point_direction(x, y, xx, yy), 1500)	
+				hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
+			}
+		}
+		
+		if hitGrappleBlock && (angle < 225 || angle > 315) {
 			alarm[2] = 30
 			pressedGrapple = false
 			state = playerState.SWING
@@ -168,3 +181,6 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 } else spitCharge = 0
 
 #endregion
+
+
+if y > room_height room_restart()
