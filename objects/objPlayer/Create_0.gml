@@ -15,6 +15,7 @@ deaccelSpeed = 2
 speedMod = 1 //automatically reset after every step
 
 jumpVelocity = -15
+maxBounceVelocity = -37
 coyoteTime = 10
 justJumped = false
 
