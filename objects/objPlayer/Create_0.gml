@@ -50,5 +50,3 @@ squishY = 1
 spitCharge = 0
 spitChargeSpeed = 0.01
 spitChargeNecessaryToShoot = 0.35
-
-projectile_guides = ds_list_create()

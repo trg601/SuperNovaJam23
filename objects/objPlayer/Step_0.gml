@@ -66,7 +66,8 @@ case playerState.NORMAL: {
 	//Enter grapple state
 	if pressedGrapple && alarm[2] == -1 {
 		var angle = point_direction(x, y, mouse_x, mouse_y)
-		var raycast = get_raycast(x, y, angle, 1500)  
+		with (objGrate) x = -x //move grate objects out of the level so they aren't effected by raycast
+		var raycast = get_raycast(x, y, angle, 1500)
 		var hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
 		
 		//Still grapple on if you miss it by about one and a half blocks
@@ -79,6 +80,7 @@ case playerState.NORMAL: {
 				hitGrappleBlock = !is_undefined(raycast) && collision_circle(raycast.x, raycast.y, 5, objGrappleBlock, 0, 0)
 			}
 		}
+		with (objGrate) x = -x //put grate objects back in levela 
 		
 		if hitGrappleBlock && (angle < 225 || angle > 315) {
 			alarm[2] = 30
@@ -113,16 +115,18 @@ case playerState.SWING: {
 		place_move_y(lengthdir_y(diff, angle))
 	}
 	
+	var breakRope = false
+	
 	//break rope if conditions are met
 	if swingLength < 100 || (swingAngle > 45 && swingAngle < 135)
-		state = playerState.NORMAL
+		breakRope = true
 	
 	//accelerate x
 	if inputX != 0
 		swingVelocity += inputX * swingVelocityInputMod
 	
 	if pressedJump || pressedGrapple {
-		state = playerState.NORMAL
+		breakRope = true
 		if alarm[2] == -1 {
 			var val = min(abs(angle_difference(swingAngle, 270)) / 60, 1)
 			kxSpeed = clamp(xSpeed, -20, 20)
@@ -130,6 +134,20 @@ case playerState.SWING: {
 			ySpeed = val * swingJumpVelocity
 			justJumped = false
 		}
+	}
+	
+	if breakRope {
+		state = playerState.NORMAL
+		var seg_length = 30
+		var segments = dist div seg_length
+		var angle = swingAngle
+		var xx = grappleX, yy = grappleY
+		var lx = lengthdir_x(seg_length, angle), ly = lengthdir_y(seg_length, angle)
+		repeat (segments) {
+			part_particles_create(global.particleSystem, xx, yy, global.partBubblePop, 5)
+			xx += lx
+			yy += ly
+		}	
 	}
 	
 } break
@@ -184,3 +202,16 @@ if holdSpit || spitCharge > spitChargeNecessaryToShoot {
 
 
 if y > room_height room_restart()
+
+if mouse_check_button_pressed(mb_middle) {
+	var dist = 30
+	var segments = point_distance(x, y, mouse_x, mouse_y) div dist
+	var angle = point_direction(x, y, mouse_x, mouse_y)
+	var xx = x, yy = y
+	var lx = lengthdir_x(dist, angle), ly = lengthdir_y(dist, angle)
+	repeat (segments) {
+		part_particles_create(global.particleSystem, xx, yy, global.partBubblePop, 5)
+		xx += lx
+		yy += ly
+	}
+}

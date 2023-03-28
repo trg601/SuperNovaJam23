@@ -3,6 +3,9 @@ foregroundLayer = layer_create(-100, "Foreground")
 if instance_exists(objPlayer)
 	layer_add_instance(foregroundLayer, instance_find(objPlayer, 0))
 
+//Create particle system
+part_system_layer(global.particleSystem, foregroundLayer)
+
 //Set up splatter tiles
 if layer_exists("Tiles_1") {
 
