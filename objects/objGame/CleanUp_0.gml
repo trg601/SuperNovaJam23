@@ -1,4 +1,8 @@
 
+part_type_destroy(global.partBubblePop)
+
+part_system_destroy(global.particleSystem)
+
 var key = ds_map_find_first(tile_sprite_map)
 repeat (ds_map_size(tile_sprite_map)) {
 	

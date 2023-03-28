@@ -1,6 +1,9 @@
 
 ySpeed += global.worldGravity * PROJECTILE_GRAVITY_MOD
 
+//Move grates out of the level so the projectile cannot collide with them
+with (objGrate) x = -x
+
 if place_meeting(x + xSpeed, y + ySpeed, parSolid) || (ySpeed > 0 && place_meeting_platform(xSpeed, ySpeed)) {
 	//Create spit object
 	var dir = point_direction(xSpeed, ySpeed, 0, 0)
@@ -22,6 +25,9 @@ if place_meeting(x + xSpeed, y + ySpeed, parSolid) || (ySpeed > 0 && place_meeti
 	
 	instance_destroy()
 }
+
+//Put grate objects back in the level
+with (objGrate) x = -x
 
 x += xSpeed
 y += ySpeed

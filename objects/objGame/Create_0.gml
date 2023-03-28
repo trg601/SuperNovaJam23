@@ -10,9 +10,23 @@ global.freezeInput = false
 global.worldGravity = 1 
 global.terminalVelocity = 30
 global.tileSize = 128
+global.spitColor = make_color_rgb(71, 255, 231)
 
 foregroundLayer = -1
 sprTileLayer = -1
+global.particleSystem  = part_system_create_layer("Instances", true)
+
+//Particle definition
+var p = part_type_create()
+part_type_shape(p, pt_shape_sphere)
+part_type_size(p, 0.2, 0.5, -0.01, 0)
+part_type_speed(p, 1, 3, 0, 0)
+part_type_direction(p, 0, 360, 0, 0)
+part_type_orientation(p, 0, 360, 0, 0, 0)
+part_type_life(p, 15, 25)
+part_type_color1(p, global.spitColor)
+
+global.partBubblePop = p
 
 //Create dynamic sprites from tilemap
 tile_sprite_map = ds_map_create()
