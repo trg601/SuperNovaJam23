@@ -51,6 +51,9 @@ spitCharge = 0
 spitChargeSpeed = 0.02
 spitChargeNecessaryToShoot = 0.35
 
+//Collectibles
+candyCount = instance_number(objCandy)
+candyRemaining = candyCount
 
 #region Gamepad
 gamepadAxisDeadZone = 0.25

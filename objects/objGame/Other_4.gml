@@ -4,8 +4,8 @@ backgroundLayer = layer_create(150, "Background") //Goes behind tiles
 guiLayer = layer_create(-500, "GuiLayer")
 layer_add_instance(guiLayer, self)
 
-if instance_exists(objPlayer)
-	layer_add_instance(foregroundLayer, instance_find(objPlayer, 0))
+with(objPlayer) layer_add_instance(other.foregroundLayer, self)
+with(objCandy) layer_add_instance(other.foregroundLayer, self)
 
 //Background objects
 with(objGrate) layer_add_instance(other.backgroundLayer, self)
