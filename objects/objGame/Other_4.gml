@@ -14,6 +14,9 @@ with(objGrate) layer_add_instance(other.backgroundLayer, self)
 part_system_layer(global.particleSystem, foregroundLayer)
 part_particles_clear(global.particleSystem)
 
+//Create camera
+instance_create_layer(0, 0, "Instances", objCamera)
+
 //Set up splatter tiles
 if layer_exists("Tiles_1") {
 
@@ -38,3 +41,5 @@ if layer_exists("Tiles_1") {
 	}
 
 }
+
+pauseMenu.reset()

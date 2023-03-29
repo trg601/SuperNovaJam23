@@ -46,6 +46,26 @@ global.partPlayerDeath = p
 #endregion
 
 
+gamePaused = false
+pauseSprite = -1
+togglePause = false
+pauseMenu = new Menu()
+pauseMenu.addButton(new Button("Keep playing!", function() {
+	togglePause = true
+}))
+pauseMenu.addButton(new Button("Restart level", function() {
+	room_restart()
+	togglePause = true
+}))
+pauseMenu.addButton(new Button("Toggle fullscreen", function() {
+	window_set_fullscreen(!window_get_fullscreen())
+    controlResize()
+}))
+pauseMenu.addButton(new Button("Quit", function() {
+	if room == RoomMainMenu game_end()
+	else room = RoomMainMenu
+	togglePause = true
+}))
 
 //Create dynamic sprites from tilemap
 tile_sprite_map = ds_map_create()

@@ -1,6 +1,4 @@
 
-instance_create_layer(0, 0, "Instances", objCamera)
-
 #region Movement variables
 inputX = 0
 pressedJump = false
