@@ -16,6 +16,6 @@ function controlResize() {
 	surface_resize(application_surface, global.winWidth, global.winHeight)
 	window_set_size(global.winWidth, global.winHeight)
 	display_set_gui_maximise(global.viewScale, global.viewScale, 0, 0)
-
+	
 	if instance_exists(objCamera) with(objCamera) event_user(0)
 }

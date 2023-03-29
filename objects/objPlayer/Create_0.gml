@@ -1,12 +1,16 @@
 
-#region Movement variables
+#region Input Variables
+global.freezeInput = false
 inputX = 0
 pressedJump = false
 jumpLeeway = 15 //number of frames to say jump button is pressed (for bouncing)
 holdJump = false
 holdSpit = false
 pressedGrapple = false
+pressedInteract = false
+#endregion
 
+#region Movement variables
 moveSpeed = 12
 accelSpeed = 2
 deaccelSpeed = 2
