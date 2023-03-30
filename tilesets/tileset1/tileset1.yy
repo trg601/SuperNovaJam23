@@ -16,8 +16,8 @@
     "path": "folders/Sprites/Tile Sets.yy",
   },
   "spriteId": {
-    "name": "sprSplatterTileTest",
-    "path": "sprites/sprSplatterTileTest/sprSplatterTileTest.yy",
+    "name": "sprSplatterGooTileSet",
+    "path": "sprites/sprSplatterGooTileSet/sprSplatterGooTileSet.yy",
   },
   "spriteNoExport": false,
   "textureGroupId": {
