@@ -4,6 +4,8 @@ game_set_speed(60, gamespeed_fps)
 
 //Go to start room (Signified by home icon)
 room = global.roomGoto
+roomPrevious = room
+
 
 //Global setup
 global.freezeInput = false
@@ -121,4 +123,4 @@ function add_tileset_sprites(tileset_id, sprite_ind, tile_size=192) {
 	ds_map_add_list(tile_sprite_map, tileset_id, list)
 }
 
-add_tileset_sprites(tileset1, sprSplatterTileTest)
+add_tileset_sprites(tileset1, sprSplatterGooTileSet)

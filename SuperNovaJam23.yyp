@@ -41,6 +41,7 @@
     {"id":{"name":"objGoalGhost","path":"objects/objGoalGhost/objGoalGhost.yy",},},
     {"id":{"name":"sprSpitProjectile","path":"sprites/sprSpitProjectile/sprSpitProjectile.yy",},},
     {"id":{"name":"sprButton","path":"sprites/sprButton/sprButton.yy",},},
+    {"id":{"name":"sprSplatterGooTileSet","path":"sprites/sprSplatterGooTileSet/sprSplatterGooTileSet.yy",},},
     {"id":{"name":"place_move_extended","path":"scripts/place_move_extended/place_move_extended.yy",},},
     {"id":{"name":"_avoid_code_lint","path":"scripts/_avoid_code_lint/_avoid_code_lint.yy",},},
     {"id":{"name":"objGame","path":"objects/objGame/objGame.yy",},},
@@ -57,6 +58,7 @@
     {"id":{"name":"tileset1","path":"tilesets/tileset1/tileset1.yy",},},
     {"id":{"name":"sprSpitRope","path":"sprites/sprSpitRope/sprSpitRope.yy",},},
     {"id":{"name":"menu_functions","path":"scripts/menu_functions/menu_functions.yy",},},
+    {"id":{"name":"RoomChallenge","path":"rooms/RoomChallenge/RoomChallenge.yy",},},
     {"id":{"name":"objCamera","path":"objects/objCamera/objCamera.yy",},},
     {"id":{"name":"parPushable","path":"objects/parPushable/parPushable.yy",},},
     {"id":{"name":"objTextbox","path":"objects/objTextbox/objTextbox.yy",},},
@@ -95,6 +97,7 @@
     {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"RoomChallenge","path":"rooms/RoomChallenge/RoomChallenge.yy",},},
     {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
     {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},

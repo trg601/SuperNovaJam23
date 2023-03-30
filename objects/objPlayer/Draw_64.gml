@@ -1,5 +1,7 @@
 
+
 draw_set_font(fntDefault)
+if candyCount == 0 exit
 draw_set_valign(fa_bottom)
 var xx = 40, yy = global.viewHeight - 25
 var text = string(candyCount - candyRemaining) + "  /  " + string(candyCount)
