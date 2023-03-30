@@ -1,4 +1,8 @@
 
+pauseMenu.cleanup()
+
+if sprite_exists(pauseSprite) sprite_delete(pauseSprite)
+
 part_type_destroy(global.partBubblePop)
 
 part_system_destroy(global.particleSystem)

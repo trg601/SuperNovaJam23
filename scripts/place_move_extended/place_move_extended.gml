@@ -1,30 +1,35 @@
 
 #macro NUMBER_OF_PIXELS_CONSIDERED_SLOPE 5
-
+#macro MAX_COLLISION_SEGMENT_SPEED 32
 
 function place_move_x(deltaX, onGround=false){
 	var collide = false
 	if deltaX == 0 return collide
 	
-	var n = 1, basespd = deltaX, ts = sign(deltaX), ta = abs(deltaX)
-	if ta > 32 { //Allow stupidly high speeds without warping through solids
-	    basespd = ts * 32
-	    n = ta mod 32
+	var ts = sign(deltaX), ta = abs(deltaX)
+	
+	//Allow stupidly high speeds without warping through solids
+	if ta > MAX_COLLISION_SEGMENT_SPEED {
+	    var n = ta div MAX_COLLISION_SEGMENT_SPEED
+		var spd = ts * MAX_COLLISION_SEGMENT_SPEED
+		deltaX = deltaX mod MAX_COLLISION_SEGMENT_SPEED
+		
+		repeat(n)
+			if place_move_x(spd, onGround) collide = true
 	}
-	repeat(n) {
-	    if !place_meeting(x + basespd, y, parSolid)
-	        x += basespd
-	    else {
-			collide = true
-			repeat(abs(basespd)) {
-	            if !place_meeting(x + ts, y, parSolid)
-	                x += ts
-				else {
-	                var i=1
-	                repeat(NUMBER_OF_PIXELS_CONSIDERED_SLOPE){
-	                    if !place_meeting(x + ts, y-i, parSolid) {x += ts y-=i break}
-	                    i++
-	                }
+	
+	if !place_meeting(x + deltaX, y, parSolid)
+	    x += deltaX
+	else {
+		collide = true
+		repeat(abs(deltaX)) {
+	        if !place_meeting(x + ts, y, parSolid)
+	            x += ts
+			else {
+	            var i=1
+	            repeat(NUMBER_OF_PIXELS_CONSIDERED_SLOPE){
+	                if !place_meeting(x + ts, y-i, parSolid) {x += ts y-=i break}
+	                i++
 	            }
 	        }
 	    }
@@ -45,19 +50,24 @@ function place_move_y(deltaY) {
 	var collide = false
 	if deltaY == 0 return collide
 
-	var n = 1, basespd = deltaY, ts = sign(deltaY), ta = abs(deltaY)
-	if ta > 32{ //Allow stupidly high speeds without warping through solids
-	    basespd = ts * 32
-	    n = ta mod 32
+	var ts = sign(deltaY), ta = abs(deltaY)
+	
+	//Allow stupidly high speeds without warping through solids
+	if ta > MAX_COLLISION_SEGMENT_SPEED {
+	    var n = ta div MAX_COLLISION_SEGMENT_SPEED
+		var spd = ts * MAX_COLLISION_SEGMENT_SPEED
+		deltaY = deltaY mod MAX_COLLISION_SEGMENT_SPEED
+		
+		repeat(n)
+			if place_move_y(spd) collide = true
 	}
-
-	repeat(n){
-	    if !place_meeting(x, y + basespd, parSolid) && (ts <= 0 || !place_meeting_platform(0, basespd)) {
-	        y += basespd
+	
+	if !place_meeting(x, y + deltaY, parSolid) && (ts <= 0 || !place_meeting_platform(0, deltaY)) {
+	        y += deltaY
 		}
 		else {
 			collide = true
-	        repeat(abs(basespd)) {
+	        repeat(abs(deltaY)) {
 	            if !place_meeting(x, y + ts, parSolid) &&
 				(ts <= 0 || !place_meeting_platform(0, 1)) {
 	                y += ts
@@ -65,7 +75,6 @@ function place_move_y(deltaY) {
 				else break
 	        }
 	    }
-	}
 	
 	return collide
 }

@@ -11,8 +11,8 @@ else if !onGround { //Bounce off
 	else if ySpeed > 0 {
 		justJumped = false
 		var jumpFactor = max(abs(ySpeed) / global.terminalVelocity, 0.6)
-		if pressedJump jumpFactor *= 1.15
-		ySpeed = -other.globBounceForce * jumpFactor
+		if pressedJump jumpFactor *= 1.5
+		ySpeed = max(-other.globBounceForce * jumpFactor, maxBounceVelocity)
 		
 		var angle = other.angle
 		if (angle == 90 || angle == -90) && abs(x - other.x) < 40
