@@ -4,10 +4,23 @@ game_set_speed(60, gamespeed_fps)
 
 //Go to start room (Signified by home icon)
 room = global.roomGoto
-roomPrevious = room
+roomPrevious = -1
+timeRoomStarted = 0
+restartsInRoom = 0
 
+//Window/View/Camera setup
+global.defWidth = 1366
+global.defHeight = 768
+global.winWidth = global.defWidth
+global.winHeight = global.defHeight
+global.viewScaleMod = 1
+global.viewScale = 1
+global.viewWidth = global.winWidth
+global.viewHeight = global.winHeight
+window_set_fullscreen(true)
+controlResize()
 
-//Global setup
+//Global game setup
 global.freezeInput = false
 global.worldGravity = 1 
 global.terminalVelocity = 30

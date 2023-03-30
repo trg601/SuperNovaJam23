@@ -13,6 +13,7 @@
     {"name":"Sounds","order":5,"path":"folders/Sounds.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"sprLogo","order":23,"path":"sprites/sprLogo/sprLogo.yy",},
     {"name":"sndSpit","order":1,"path":"sounds/sndSpit/sndSpit.yy",},
     {"name":"draw_line_textured","order":5,"path":"scripts/draw_line_textured/draw_line_textured.yy",},
     {"name":"sprTextbox","order":20,"path":"sprites/sprTextbox/sprTextbox.yy",},

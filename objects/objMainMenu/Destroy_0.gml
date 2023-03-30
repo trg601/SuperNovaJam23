@@ -1,1 +1,3 @@
-menu.cleanup()
+menuMain.cleanup()
+menuLevels.cleanup()
+menuOptions.cleanup()

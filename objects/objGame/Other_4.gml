@@ -43,3 +43,11 @@ if layer_exists("Tiles_1") {
 }
 
 pauseMenu.reset()
+
+//Statistics
+if room != roomPrevious {
+	roomPrevious = room
+	timeRoomStarted = current_time
+	restartsInRoom = 0
+} else restartsInRoom++
+	

@@ -27,7 +27,8 @@ for (var i = 0; i < nChars; i++) {
 				isFloating = !modifier.cancel
 				break
 			case textModifier.finishLevel:
-				roomTo = room_next(room)
+				if modifier.data > -1 roomTo = modifier.data
+				else roomTo = room_next(room)
 				break
 		}
 		

@@ -1,5 +1,6 @@
 
-pauseMenu.cleanup()
+pauseMenuMain.cleanup()
+pauseMenuOptions.cleanup()
 
 if sprite_exists(pauseSprite) sprite_delete(pauseSprite)
 

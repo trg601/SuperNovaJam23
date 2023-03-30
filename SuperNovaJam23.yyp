@@ -34,6 +34,7 @@
     "IDEVersion": "2023.2.1.75",
   },
   "resources": [
+    {"id":{"name":"sprLogo","path":"sprites/sprLogo/sprLogo.yy",},},
     {"id":{"name":"sndSpit","path":"sounds/sndSpit/sndSpit.yy",},},
     {"id":{"name":"draw_line_textured","path":"scripts/draw_line_textured/draw_line_textured.yy",},},
     {"id":{"name":"sprTextbox","path":"sprites/sprTextbox/sprTextbox.yy",},},
@@ -94,14 +95,14 @@
     {"id":{"name":"sprBackground","path":"sprites/sprBackground/sprBackground.yy",},},
     {"id":{"name":"sprButtonMask","path":"sprites/sprButtonMask/sprButtonMask.yy",},},
     {"id":{"name":"fntDefault","path":"fonts/fntDefault/fntDefault.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
   ],
   "RoomOrderNodes": [
-    {"roomId":{"name":"RoomChallenge","path":"rooms/RoomChallenge/RoomChallenge.yy",},},
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
-    {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
-    {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
     {"roomId":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
+    {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
+    {"roomId":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
+    {"roomId":{"name":"RoomChallenge","path":"rooms/RoomChallenge/RoomChallenge.yy",},},
+    {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
   ],
   "TextureGroups": [
     {"resourceType":"GMTextureGroup","resourceVersion":"1.3","name":"Default","autocrop":true,"border":2,"compressFormat":"bz2","directory":"","groupParent":null,"isScaled":true,"loadType":"default","mipsToGenerate":0,"targets":-1,},

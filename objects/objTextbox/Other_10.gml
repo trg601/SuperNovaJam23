@@ -60,6 +60,9 @@ for (i = 1; i < nCharsTotal + 1; i++) {
 				} break
 				case "finishLevel": {
 					cmd = textModifier.finishLevel
+					if commandD != "" && asset_get_type(commandD) == asset_room {
+						_data = asset_get_index(commandD)	
+					}
 				} break
 			}
 				

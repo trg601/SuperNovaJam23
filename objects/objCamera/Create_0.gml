@@ -1,14 +1,4 @@
 
-global.defWidth = 1366
-global.defHeight = 768
-global.winWidth = global.defWidth
-global.winHeight = global.defHeight
-global.viewScaleMod = 1
-global.viewScale = 1
-global.viewWidth = global.winWidth
-global.viewHeight = global.winHeight
-
-
 camera = camera_create()
 var vm = matrix_build_lookat(0, 0, -1000, 0, 0, 0, 0, 1, 0)
 var pm = matrix_build_projection_ortho(global.viewWidth, global.viewHeight, 1, 10000)
