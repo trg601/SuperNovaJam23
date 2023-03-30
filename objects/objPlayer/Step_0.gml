@@ -64,6 +64,7 @@ switch (state) {
 case playerState.NORMAL: {
 
 	if pressedJump && (onGround || alarm[0] > 0) {
+		audio_play_sound(sndJump, 0, false, global.soundVolume / 4)
 		ySpeed = jumpVelocity
 		justJumped = true
 	}
@@ -121,6 +122,7 @@ case playerState.NORMAL: {
 		with (objGrate) x = -x //put grate objects back in levela 
 		
 		if hitGrappleBlock && (angle < 225 || angle > 315) {
+			audio_play_sound(sndSpit, 0, false, global.soundVolume)
 			alarm[2] = 30
 			pressedGrapple = false
 			state = playerState.SWING
@@ -175,6 +177,7 @@ case playerState.SWING: {
 	}
 	
 	if breakRope {
+		audio_play_sound(sndSpit, 0, false, global.soundVolume)
 		state = playerState.NORMAL
 		var seg_length = 30
 		var segments = dist div seg_length
@@ -228,6 +231,7 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 	spitCharge = min(spitCharge, 1)
 	
 	if !holdSpit && spitCharge > spitChargeNecessaryToShoot {
+		audio_play_sound(sndSpit, 0, false, global.soundVolume)
 		var spit = instance_create_layer(x, y, "Foreground", objSpitProjectile)
 		var dir = point_direction(x, y, recticleX, recticleY)
 		var mouseDist = min(point_distance(x, y, recticleX, recticleY) / 400, 1)

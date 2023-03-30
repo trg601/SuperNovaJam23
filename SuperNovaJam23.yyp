@@ -34,6 +34,7 @@
     "IDEVersion": "2023.2.1.75",
   },
   "resources": [
+    {"id":{"name":"sndSpit","path":"sounds/sndSpit/sndSpit.yy",},},
     {"id":{"name":"draw_line_textured","path":"scripts/draw_line_textured/draw_line_textured.yy",},},
     {"id":{"name":"sprTextbox","path":"sprites/sprTextbox/sprTextbox.yy",},},
     {"id":{"name":"musicTheme","path":"sounds/musicTheme/musicTheme.yy",},},
@@ -62,6 +63,7 @@
     {"id":{"name":"sprSplatterTileTest","path":"sprites/sprSplatterTileTest/sprSplatterTileTest.yy",},},
     {"id":{"name":"sprSpikes","path":"sprites/sprSpikes/sprSpikes.yy",},},
     {"id":{"name":"objGrate","path":"objects/objGrate/objGrate.yy",},},
+    {"id":{"name":"sndJump","path":"sounds/sndJump/sndJump.yy",},},
     {"id":{"name":"controlResize","path":"scripts/controlResize/controlResize.yy",},},
     {"id":{"name":"push_pushable_object","path":"scripts/push_pushable_object/push_pushable_object.yy",},},
     {"id":{"name":"sprGrappleBlock","path":"sprites/sprGrappleBlock/sprGrappleBlock.yy",},},

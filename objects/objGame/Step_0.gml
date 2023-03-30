@@ -9,6 +9,7 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 	
 	if !gamePaused {
 		if room == RoomMainMenu exit
+		audio_sound_gain(currentMusic, global.musicVolume * 0.25, 50)
 		
 		instance_deactivate_all(true)
 		instance_activate_object(objCamera)
@@ -19,6 +20,7 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 		pauseSprite = sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), 0, 0, 0, 0)
 		
 	} else {
+		audio_sound_gain(currentMusic, global.musicVolume, 50)
 		instance_activate_all()
 		with(objCamera) gamePaused = false
 		sprite_delete(pauseSprite)

@@ -13,6 +13,7 @@
     {"name":"Sounds","order":5,"path":"folders/Sounds.yy",},
   ],
   "ResourceOrderSettings": [
+    {"name":"sndSpit","order":1,"path":"sounds/sndSpit/sndSpit.yy",},
     {"name":"draw_line_textured","order":5,"path":"scripts/draw_line_textured/draw_line_textured.yy",},
     {"name":"sprTextbox","order":20,"path":"sprites/sprTextbox/sprTextbox.yy",},
     {"name":"objGoalGhost","order":11,"path":"objects/objGoalGhost/objGoalGhost.yy",},
@@ -36,6 +37,7 @@
     {"name":"sprSplatterTileTest","order":10,"path":"sprites/sprSplatterTileTest/sprSplatterTileTest.yy",},
     {"name":"sprSpikes","order":17,"path":"sprites/sprSpikes/sprSpikes.yy",},
     {"name":"objGrate","order":8,"path":"objects/objGrate/objGrate.yy",},
+    {"name":"sndJump","order":2,"path":"sounds/sndJump/sndJump.yy",},
     {"name":"controlResize","order":7,"path":"scripts/controlResize/controlResize.yy",},
     {"name":"push_pushable_object","order":2,"path":"scripts/push_pushable_object/push_pushable_object.yy",},
     {"name":"sprGrappleBlock","order":12,"path":"sprites/sprGrappleBlock/sprGrappleBlock.yy",},

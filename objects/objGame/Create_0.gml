@@ -46,26 +46,49 @@ global.partPlayerDeath = p
 #endregion
 
 
+//Music  
+global.musicVolume = 1
+global.soundVolume = 1
+currentMusic = audio_play_sound(musicTheme, 10, true, global.musicVolume)
+
 gamePaused = false
 pauseSprite = -1
 togglePause = false
-pauseMenu = new Menu()
-pauseMenu.addButton(new Button("Keep playing!", function() {
+pauseMenuMain = new Menu()
+pauseMenuMain.addButton(new Button("Keep playing!", function() {
 	togglePause = true
 }))
-pauseMenu.addButton(new Button("Restart level", function() {
+pauseMenuMain.addButton(new Button("Restart level", function() {
 	room_restart()
 	togglePause = true
 }))
-pauseMenu.addButton(new Button("Toggle fullscreen", function() {
-	window_set_fullscreen(!window_get_fullscreen())
-    controlResize()
+pauseMenuMain.addButton(new Button("Options", function() {
+	pauseMenu = pauseMenuOptions
 }))
-pauseMenu.addButton(new Button("Quit", function() {
+pauseMenuMain.addButton(new Button("Quit", function() {
 	if room == RoomMainMenu game_end()
 	else room = RoomMainMenu
 	togglePause = true
 }))
+
+pauseMenuOptions = new Menu()
+pauseMenuOptions.addButton(new Button("Back", function() {
+	pauseMenu = pauseMenuMain
+}))
+pauseMenuOptions.addButton(new Button("Toggle fullscreen", function() {
+	window_set_fullscreen(!window_get_fullscreen())
+    controlResize()
+}))
+pauseMenuOptions.addButton(new Button("Toggle music", function() {
+	global.musicVolume = global.musicVolume > 0 ? 0 : 1
+	audio_sound_gain(currentMusic, global.musicVolume, 50)
+}))
+pauseMenuOptions.addButton(new Button("Toggle sound", function() {
+	global.soundVolume = global.soundVolume > 0 ? 0 : 1
+}))
+
+
+pauseMenu = pauseMenuMain
 
 //Create dynamic sprites from tilemap
 tile_sprite_map = ds_map_create()
