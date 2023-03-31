@@ -1,61 +1,10 @@
 
-//Input
-inputX = 0
-holdJump = false
-holdSpit = false
-pressedGrapple = false
-pressedInteract = false
-if !global.freezeInput {
-	if keyboard_check(ord("D")) inputX = 1
-	if keyboard_check(ord("A")) inputX = -1
-	if abs(gamepad_axis_value(0, gp_axislh)) > gamepadAxisDeadZone {
-		inputX = sign(gamepad_axis_value(0, gp_axislh))
-		useGPRecticle = true
-	}
-	
-	if keyboard_check(vk_space) || gamepad_button_check(0, gp_face1)
-		holdJump = true
-	if mouse_check_button(mb_left) || gamepad_button_check(0, gp_shoulderl)
-		holdSpit = true
-	if mouse_check_button_released(mb_right) || gamepad_button_check_released(0, gp_shoulderr)
-		pressedGrapple = true
-	if keyboard_check(ord("E")) || gamepad_button_check(0, gp_face3)
-		pressedInteract = true
-	if keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1) {
-		pressedJump = true
-		alarm[1] = jumpLeeway
-	}
-	
-	//Choose whether to use gamepad or mouse for aiming
-	recticleActive = false
-	var mx = display_mouse_get_x(), my = display_mouse_get_y()
-	if mx != mouse_xprev || my != mouse_yprev
-		useGPRecticle = false
-	else if abs(gamepad_axis_value(0, gp_axisrh)) > gamepadAxisDeadZone || abs(gamepad_axis_value(0, gp_axisrv)) > gamepadAxisDeadZone {
-		useGPRecticle = true
-		recticleActive = true
-	}
-	mouse_xprev = mx
-	mouse_yprev = my
-}
-
-//Gamepad recticle
-if recticleActive {
-	var xx = gamepad_axis_value(0, gp_axisrh), yy = gamepad_axis_value(0, gp_axisrv)
-	var dist = recticleMinDistance + point_distance(0, 0, xx, yy) * recticleDistance
-	var dir = point_direction(0, 0, xx, yy)
-	recticleX = x + lengthdir_x(dist, dir)
-	recticleY = y + lengthdir_y(dist, dir)
-} else {
-	recticleX = mouse_x
-	recticleY = mouse_y
-}
-
 onGround = false
 
 if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 	onGround = true
 	alarm[0] = coyoteTime
+	if ySpeed > 5 sprite_index = sprPlayerLand 
 	ySpeed = 0
 }
 
@@ -67,6 +16,8 @@ case playerState.NORMAL: {
 		audio_play_sound(sndJump, 0, false, global.soundVolume / 4)
 		ySpeed = jumpVelocity
 		justJumped = true
+		sprite_index = sprPlayerJumpStart
+		image_index = 0
 	}
 
 	if justJumped && ySpeed < 0 && !holdJump{
@@ -76,11 +27,16 @@ case playerState.NORMAL: {
 	if inputX != 0 { //accelerate x
 		xSpeed += inputX * accelSpeed
 		xSpeed = clamp(xSpeed, -moveSpeed, moveSpeed)
+		
+		if onGround && sprite_index == sprPlayerIdle sprite_index = sprPlayerWalk
 	}
 	else if xSpeed != 0{ //deaccelerate x
 		var ts = sign(xSpeed)
 		xSpeed -= ts * deaccelSpeed
-		if (ts != sign(xSpeed)) then xSpeed = 0
+		if (ts != sign(xSpeed)) {
+			xSpeed = 0
+			if onGround && sprite_index == sprPlayerWalk sprite_index = sprPlayerIdle
+		}
 	}
 
 	if onGround {
@@ -123,6 +79,7 @@ case playerState.NORMAL: {
 		
 		if hitGrappleBlock && (angle < 225 || angle > 315) {
 			audio_play_sound(sndSpit, 0, false, global.soundVolume)
+			sprite_index = sprPlayerSpit
 			alarm[2] = 30
 			pressedGrapple = false
 			state = playerState.SWING
@@ -173,6 +130,8 @@ case playerState.SWING: {
 			xSpeed = 0
 			ySpeed = val * swingJumpVelocity
 			justJumped = false
+			sprite_index = sprPlayerJumpStart
+			image_index = 0
 		}
 	}
 	
@@ -212,7 +171,10 @@ if kxSpeed != 0 {
 var collideX = place_move_x((xSpeed + kxSpeed) * speedMod, onGround)
 if collideX && kxSpeed != 0 kxSpeed = -kxSpeed * 0.3
 var collideY = place_move_y(ySpeed)
-if collideY ySpeed = 0
+if collideY {
+	if ySpeed > 5 sprite_index = sprPlayerLand
+	ySpeed = 0
+}
 
 if state == playerState.SWING && (collideX || collideY) {
 	swingAngle = point_direction(grappleX, grappleY, x, y)
@@ -229,6 +191,8 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 	if spitCharge == 0 spitCharge = 0.25
 	spitCharge += spitChargeSpeed
 	spitCharge = min(spitCharge, 1)
+	sprite_index = sprPlayerCharge
+	image_index = spitCharge * 2
 	
 	if !holdSpit && spitCharge > spitChargeNecessaryToShoot {
 		audio_play_sound(sndSpit, 0, false, global.soundVolume)
@@ -240,9 +204,13 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 		var dist = PROJECTILE_SPEED * spitCharge * mouseDist
 		spit.xSpeed = lengthdir_x(dist, dir)
 		spit.ySpeed = lengthdir_y(dist, dir)
+		sprite_index = sprPlayerIdle
 		spitCharge = 0
 	}
-} else spitCharge = 0
+} else if sprite_index == sprPlayerCharge {
+	spitCharge = 0
+	sprite_index = sprPlayerIdle
+}
 
 #endregion
 

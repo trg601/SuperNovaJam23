@@ -3,15 +3,9 @@ if state == playerState.SWING {
 	draw_line_textured(sprSpitRope, x, y, grappleX, grappleY)
 }
 
-image_xscale = faceX * squishX
-image_yscale = squishY
-draw_self()
-image_xscale = 1
+draw_sprite_ext(sprite_index, image_index, x + addX, y + addY, faceX * squishX, squishY, image_angle, image_blend, image_alpha)
 
-
-image_yscale = 1
-
-image_blend = merge_color(c_white, c_blue, spitCharge)
+image_blend = merge_color(c_white, spitChargeColor, spitCharge)
 
 //Estimate projectile position
 if spitCharge > spitChargeNecessaryToShoot {

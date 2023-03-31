@@ -2,10 +2,10 @@
   "resourceType": "GMSprite",
   "resourceVersion": "1.0",
   "name": "sprPlatformTest",
-  "bbox_bottom": 1,
+  "bbox_bottom": 5,
   "bbox_left": 0,
   "bbox_right": 127,
-  "bbox_top": 0,
+  "bbox_top": 4,
   "bboxMode": 2,
   "collisionKind": 1,
   "collisionTolerance": 0,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"c8869598-4e72-4f3f-b0d7-8cd2b470151d",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"b2a14c5d-2424-4138-8044-1adee96c84db",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 128,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e24967b0-b04c-4cb2-a5e4-cc784eecb382","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"e48958ff-baab-47ad-b803-a5d29f55d353","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"c8869598-4e72-4f3f-b0d7-8cd2b470151d","path":"sprites/sprPlatformTest/sprPlatformTest.yy",},},},"Disabled":false,"id":"f597b153-6a03-4b5f-be88-a2cedc5e8b64","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"b2a14c5d-2424-4138-8044-1adee96c84db","path":"sprites/sprPlatformTest/sprPlatformTest.yy",},},},"Disabled":false,"id":"e6280232-5ad6-4750-bb6f-e90b32071b59","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,
