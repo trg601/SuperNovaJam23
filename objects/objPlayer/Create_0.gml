@@ -1,4 +1,9 @@
 
+if global.playerLastX != -1 {
+	x = global.playerLastX
+	y = global.playerLastY
+}
+
 #region Input Variables
 global.freezeInput = false
 inputX = 0
