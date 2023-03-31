@@ -25,10 +25,11 @@ global.freezeInput = false
 global.worldGravity = 1 
 global.terminalVelocity = 30
 global.tileSize = 128
-global.spitColor = make_color_rgb(71, 255, 231)
+global.spitColor = c_ltgray//make_color_rgb(71, 255, 231)
 
 foregroundLayer = -1
 backgroundLayer = -1
+behindLayer = -1
 guiLayer = -1
 sprTileLayer = -1
 global.particleSystem  = part_system_create_layer("Instances", true)

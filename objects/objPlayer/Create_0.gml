@@ -4,6 +4,10 @@ if global.playerLastX != -1 {
 	y = global.playerLastY
 }
 
+globPushingSound = -1
+walkingSound = -1
+candyTextColor = make_color_rgb(48, 2, 595)
+
 #region Input Variables
 global.freezeInput = false
 inputX = 0

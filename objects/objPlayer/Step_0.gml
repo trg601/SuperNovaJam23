@@ -187,6 +187,15 @@ if state == playerState.SWING && (collideX || collideY) {
 	kxSpeed = 0
 	ySpeed = 0
 }
+
+if speedMod != 1 {
+	if globPushingSound == -1
+		globPushingSound = audio_play_sound(sndPushGlob, 0, true, global.soundVolume)	
+} else if globPushingSound != -1 {
+	audio_stop_sound(globPushingSound)
+	globPushingSound = -1
+}
+
 speedMod = 1
 
 
@@ -219,8 +228,15 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 
 #endregion
 
-
 if y > room_height {
 	dead = true
 	instance_destroy()
+}
+
+if sprite_index == sprPlayerWalk {
+	if walkingSound == -1
+		walkingSound = audio_play_sound(sndWalk, 0, true, global.soundVolume)	
+} else if walkingSound != -1 {
+	audio_stop_sound(walkingSound)
+	walkingSound = -1	
 }

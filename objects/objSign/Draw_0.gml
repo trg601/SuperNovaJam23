@@ -1,15 +1,7 @@
-sinCount+=0.05
-sinCountX+=0.03
 
-posX = sin(sinCountX) * 2
-posY = sin(sinCount) * 2
-x += posX
-y += posY
 draw_self()
-x -= posX
-y -= posY
 
-if !instance_exists(objPlayer) || isIntro exit
+if !instance_exists(objPlayer) exit
 
 if point_distance(x, y, objPlayer.x, objPlayer.y) < 200 && !instance_exists(objTextbox) {
 	var yy = y - 40
@@ -21,9 +13,6 @@ if point_distance(x, y, objPlayer.x, objPlayer.y) < 200 && !instance_exists(objT
 	
 	if objPlayer.pressedInteract && objPlayer.onGround {
 		var ins = instance_create_layer(0, 0, "guiLayer", objTextbox)
-		if objPlayer.candyRemaining == 0
-			ins.dialogueId = dialogueId
-		else
-			ins.dialogueId = 0
+		ins.dialogueId = dialogueId  
 	}
 }

@@ -52,6 +52,9 @@ for (i = 1; i < nCharsTotal + 1; i++) {
 					switch(commandD) {
 						case "red": _data = c_red break
 						case "white": _data = c_white break
+						case "cyan": _data = make_color_rgb(89, 255, 238) break
+						case "lime green": _data = make_color_rgb(99, 255, 99) break
+						case "black": _data = c_black break
 					}
 					if isCancel _data = -1
 				} break

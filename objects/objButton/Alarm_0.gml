@@ -1,0 +1,1 @@
+///@desc sound cooldown
