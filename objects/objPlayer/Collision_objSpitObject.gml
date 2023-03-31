@@ -9,6 +9,8 @@ else if !onGround { //Bounce off
 	if bbox_bottom > other.bbox_bottom
 		ySpeed = other.globBounceForce * 0.5
 	else if ySpeed > 0 {
+		sprite_index = sprPlayerJumpStart
+		 image_index = 0
 		justJumped = false
 		var jumpFactor = max(abs(ySpeed) / global.terminalVelocity, 0.6)
 		if pressedJump jumpFactor *= 1.5

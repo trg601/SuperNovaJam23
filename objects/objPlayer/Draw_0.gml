@@ -5,7 +5,7 @@ if state == playerState.SWING {
 
 draw_sprite_ext(sprite_index, image_index, x + addX, y + addY, faceX * squishX, squishY, image_angle, image_blend, image_alpha)
 
-image_blend = merge_color(c_white, c_blue, spitCharge)
+image_blend = merge_color(c_white, spitChargeColor, spitCharge)
 
 //Estimate projectile position
 if spitCharge > spitChargeNecessaryToShoot {

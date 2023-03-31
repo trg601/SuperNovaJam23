@@ -56,6 +56,7 @@ addY = 0
 spitCharge = 0
 spitChargeSpeed = 0.02
 spitChargeNecessaryToShoot = 0.35
+spitChargeColor = make_color_rgb(255, 138, 125)
 
 //Collectibles
 candyCount = instance_number(objCandy)

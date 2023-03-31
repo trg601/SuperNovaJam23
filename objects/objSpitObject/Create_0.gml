@@ -14,6 +14,8 @@ addY = 0
 event_user(0)
 
 if angle < 90 || angle > 270 {
-	y -= 15
+	while(place_meeting(x, y, parSolid)) {
+	y -= 5
+	}
 	if place_meeting(x, y, parPlatform) y -= 15
 }

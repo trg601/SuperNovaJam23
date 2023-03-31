@@ -4,6 +4,7 @@ onGround = false
 if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 	onGround = true
 	alarm[0] = coyoteTime
+	if ySpeed > 5 sprite_index = sprPlayerLand 
 	ySpeed = 0
 }
 
@@ -15,6 +16,8 @@ case playerState.NORMAL: {
 		audio_play_sound(sndJump, 0, false, global.soundVolume / 4)
 		ySpeed = jumpVelocity
 		justJumped = true
+		sprite_index = sprPlayerJumpStart
+		image_index = 0
 	}
 
 	if justJumped && ySpeed < 0 && !holdJump{
@@ -24,11 +27,16 @@ case playerState.NORMAL: {
 	if inputX != 0 { //accelerate x
 		xSpeed += inputX * accelSpeed
 		xSpeed = clamp(xSpeed, -moveSpeed, moveSpeed)
+		
+		if onGround && sprite_index == sprPlayerIdle sprite_index = sprPlayerWalk
 	}
 	else if xSpeed != 0{ //deaccelerate x
 		var ts = sign(xSpeed)
 		xSpeed -= ts * deaccelSpeed
-		if (ts != sign(xSpeed)) then xSpeed = 0
+		if (ts != sign(xSpeed)) {
+			xSpeed = 0
+			if onGround && sprite_index == sprPlayerWalk sprite_index = sprPlayerIdle
+		}
 	}
 
 	if onGround {
@@ -71,6 +79,7 @@ case playerState.NORMAL: {
 		
 		if hitGrappleBlock && (angle < 225 || angle > 315) {
 			audio_play_sound(sndSpit, 0, false, global.soundVolume)
+			sprite_index = sprPlayerSpit
 			alarm[2] = 30
 			pressedGrapple = false
 			state = playerState.SWING
@@ -121,6 +130,8 @@ case playerState.SWING: {
 			xSpeed = 0
 			ySpeed = val * swingJumpVelocity
 			justJumped = false
+			sprite_index = sprPlayerJumpStart
+			image_index = 0
 		}
 	}
 	
@@ -160,7 +171,10 @@ if kxSpeed != 0 {
 var collideX = place_move_x((xSpeed + kxSpeed) * speedMod, onGround)
 if collideX && kxSpeed != 0 kxSpeed = -kxSpeed * 0.3
 var collideY = place_move_y(ySpeed)
-if collideY ySpeed = 0
+if collideY {
+	if ySpeed > 5 sprite_index = sprPlayerLand
+	ySpeed = 0
+}
 
 if state == playerState.SWING && (collideX || collideY) {
 	swingAngle = point_direction(grappleX, grappleY, x, y)
@@ -177,6 +191,8 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 	if spitCharge == 0 spitCharge = 0.25
 	spitCharge += spitChargeSpeed
 	spitCharge = min(spitCharge, 1)
+	sprite_index = sprPlayerCharge
+	image_index = spitCharge * 2
 	
 	if !holdSpit && spitCharge > spitChargeNecessaryToShoot {
 		audio_play_sound(sndSpit, 0, false, global.soundVolume)
@@ -188,9 +204,13 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 		var dist = PROJECTILE_SPEED * spitCharge * mouseDist
 		spit.xSpeed = lengthdir_x(dist, dir)
 		spit.ySpeed = lengthdir_y(dist, dir)
+		sprite_index = sprPlayerIdle
 		spitCharge = 0
 	}
-} else spitCharge = 0
+} else if sprite_index == sprPlayerCharge {
+	spitCharge = 0
+	sprite_index = sprPlayerIdle
+}
 
 #endregion
 

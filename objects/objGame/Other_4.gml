@@ -8,6 +8,9 @@ with(objPlayer) layer_add_instance(other.foregroundLayer, self)
 with(objCandy) layer_add_instance(other.foregroundLayer, self)
 
 //Background objects
+if instance_exists(objPlayer) {
+	instance_create_layer(0, 0, "Background", objParallaxBG)
+}
 with(objGrate) layer_add_instance(other.backgroundLayer, self)
 
 //Assign particle system to new layer
