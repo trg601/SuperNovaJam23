@@ -8,6 +8,9 @@ rightY = 0
 leftX = 0
 rightX = 0
 
+addX = 0
+addY = 0
+
 event_user(0)
 
 if angle < 90 || angle > 270 {

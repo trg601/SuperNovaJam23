@@ -8,6 +8,8 @@ alphaSolid = 1
 alphaInvis = 0.5
 sinCount = random(10)
 sinCountX = random(10)
+posX = 0
+posY = 0
 
 isSolid = !startSolid
 event_user(0)

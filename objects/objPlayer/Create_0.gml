@@ -50,6 +50,8 @@ state = playerState.NORMAL
 faceX = 1 //direction you're facing
 squishX = 1 //squish factor
 squishY = 1
+addX = 0
+addY = 0
 
 spitCharge = 0
 spitChargeSpeed = 0.02

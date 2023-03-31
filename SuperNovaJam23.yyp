@@ -99,9 +99,9 @@
     {"id":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
   ],
   "RoomOrderNodes": [
+    {"roomId":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
     {"roomId":{"name":"RoomMainMenu","path":"rooms/RoomMainMenu/RoomMainMenu.yy",},},
     {"roomId":{"name":"RoomA","path":"rooms/RoomA/RoomA.yy",},},
-    {"roomId":{"name":"RoomTest","path":"rooms/RoomTest/RoomTest.yy",},},
     {"roomId":{"name":"RoomChallenge","path":"rooms/RoomChallenge/RoomChallenge.yy",},},
     {"roomId":{"name":"rmInit","path":"rooms/rmInit/rmInit.yy",},},
   ],
