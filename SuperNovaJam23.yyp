@@ -97,6 +97,7 @@
     {"id":{"name":"objGhostBlock","path":"objects/objGhostBlock/objGhostBlock.yy",},},
     {"id":{"name":"sprSolid","path":"sprites/sprSolid/sprSolid.yy",},},
     {"id":{"name":"sprSlope","path":"sprites/sprSlope/sprSlope.yy",},},
+    {"id":{"name":"sprNpc4","path":"sprites/sprNpc4/sprNpc4.yy",},},
     {"id":{"name":"sprGhostBlock","path":"sprites/sprGhostBlock/sprGhostBlock.yy",},},
     {"id":{"name":"sprCandy","path":"sprites/sprCandy/sprCandy.yy",},},
     {"id":{"name":"sprPlayerJumpStart","path":"sprites/sprPlayerJumpStart/sprPlayerJumpStart.yy",},},

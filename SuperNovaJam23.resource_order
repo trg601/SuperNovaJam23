@@ -70,6 +70,7 @@
     {"name":"objGhostBlock","order":7,"path":"objects/objGhostBlock/objGhostBlock.yy",},
     {"name":"sprSolid","order":2,"path":"sprites/sprSolid/sprSolid.yy",},
     {"name":"sprSlope","order":5,"path":"sprites/sprSlope/sprSlope.yy",},
+    {"name":"sprNpc4","order":30,"path":"sprites/sprNpc4/sprNpc4.yy",},
     {"name":"sprGhostBlock","order":15,"path":"sprites/sprGhostBlock/sprGhostBlock.yy",},
     {"name":"sprCandy","order":19,"path":"sprites/sprCandy/sprCandy.yy",},
     {"name":"sprPlayerJumpStart","order":4,"path":"sprites/sprPlayerJumpStart/sprPlayerJumpStart.yy",},
