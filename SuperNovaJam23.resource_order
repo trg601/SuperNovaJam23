@@ -41,6 +41,7 @@
     {"name":"menu_functions","order":6,"path":"scripts/menu_functions/menu_functions.yy",},
     {"name":"RoomChallenge","order":4,"path":"rooms/RoomChallenge/RoomChallenge.yy",},
     {"name":"objCamera","order":1,"path":"objects/objCamera/objCamera.yy",},
+    {"name":"RoomC","order":5,"path":"rooms/RoomC/RoomC.yy",},
     {"name":"sprPlayerSpit","order":2,"path":"sprites/sprPlayerSpit/sprPlayerSpit.yy",},
     {"name":"parPushable","order":1,"path":"objects/parPushable/parPushable.yy",},
     {"name":"objTextbox","order":12,"path":"objects/objTextbox/objTextbox.yy",},
@@ -81,5 +82,6 @@
     {"name":"sprMenuButton","order":18,"path":"sprites/sprMenuButton/sprMenuButton.yy",},
     {"name":"objSpitProjectile","order":3,"path":"objects/objSpitProjectile/objSpitProjectile.yy",},
     {"name":"sprButtonMask","order":14,"path":"sprites/sprButtonMask/sprButtonMask.yy",},
+    {"name":"RoomB","order":6,"path":"rooms/RoomB/RoomB.yy",},
   ],
 }
