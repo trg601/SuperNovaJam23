@@ -65,6 +65,9 @@ if room != roomPrevious {
 		}
 	}
 	
+	global.playerLastX = -1
+	global.playerLastY = -1
+	
 	//Statistics
 	timeRoomStarted = current_time
 	restartsInRoom = 0

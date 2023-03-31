@@ -6,6 +6,11 @@ if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 	alarm[0] = coyoteTime
 	if ySpeed > 5 sprite_index = sprPlayerLand 
 	ySpeed = 0
+	
+	if !place_meeting(x, y+1, objGhostBlock) {
+		global.playerLastX = x
+		global.playerLastY = y	
+	}
 }
 
 //State handling

@@ -38,6 +38,8 @@ global.particleSystem  = part_system_create_layer("Instances", true)
 global.musicVolume = 1
 global.soundVolume = 1
 currentMusic = audio_play_sound(musicTheme, 10, true, global.musicVolume)
+global.playerLastX = -1
+global.playerLastY = -1
 
 #region Level Setup
 
