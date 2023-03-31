@@ -56,6 +56,7 @@
     {"id":{"name":"parSlope","path":"objects/parSlope/parSlope.yy",},},
     {"id":{"name":"parSolid","path":"objects/parSolid/parSolid.yy",},},
     {"id":{"name":"objButton","path":"objects/objButton/objButton.yy",},},
+    {"id":{"name":"sndCollect","path":"sounds/sndCollect/sndCollect.yy",},},
     {"id":{"name":"tileset1","path":"tilesets/tileset1/tileset1.yy",},},
     {"id":{"name":"sprSpitRope","path":"sprites/sprSpitRope/sprSpitRope.yy",},},
     {"id":{"name":"menu_functions","path":"scripts/menu_functions/menu_functions.yy",},},

@@ -33,39 +33,29 @@ guiLayer = -1
 sprTileLayer = -1
 global.particleSystem  = part_system_create_layer("Instances", true)
 
-#region Particle definition
-
-//Bubble pop
-var p = part_type_create()
-part_type_shape(p, pt_shape_sphere)
-part_type_size(p, 0.2, 0.5, -0.01, 0)
-part_type_speed(p, 1, 3, 0, 0)
-part_type_direction(p, 0, 360, 0, 0)
-part_type_orientation(p, 0, 360, 0, 0, 0)
-part_type_life(p, 15, 25)
-part_type_color1(p, global.spitColor)
-global.partBubblePop = p
-
-//Player death
-var p = part_type_create()
-part_type_shape(p, pt_shape_sphere)
-part_type_size(p, 0.7, 2, -0.05, 0)
-part_type_speed(p, 1, 4, 0, 0)
-part_type_direction(p, 0, 360, 0, 0)
-part_type_orientation(p, 0, 360, 0, 0, 0)
-part_type_life(p, 40, 50)
-part_type_color1(p, global.spitColor)
-global.partPlayerDeath = p
-
-
-#endregion
-
 
 //Music  
 global.musicVolume = 1
 global.soundVolume = 1
 currentMusic = audio_play_sound(musicTheme, 10, true, global.musicVolume)
 
+#region Level Setup
+
+levels = ds_list_create()
+curLevelTitle = ""
+showTitle = false
+nextLevel = -1
+numStoryLevels = 4
+
+ds_list_add(levels, { name: "Simple Sanctuary", room: RoomA })
+ds_list_add(levels, { name: "Puzzling Prairie", room: RoomTest })
+ds_list_add(levels, { name: "Interesting Isles", room: RoomTest })
+ds_list_add(levels, { name: "Troubling Territory", room: RoomTest })
+ds_list_add(levels, { name: "Challenge Level", room: RoomChallenge })
+
+#endregion
+
+#region Pause Menu
 gamePaused = false
 pauseSprite = -1
 togglePause = false
@@ -102,10 +92,37 @@ pauseMenuOptions.addButton(new Button("Toggle sound", function() {
 	global.soundVolume = global.soundVolume > 0 ? 0 : 1
 }))
 
-
 pauseMenu = pauseMenuMain
+#endregion
 
-//Create dynamic sprites from tilemap
+#region Particle definition
+
+//Bubble pop
+var p = part_type_create()
+part_type_shape(p, pt_shape_sphere)
+part_type_size(p, 0.2, 0.5, -0.01, 0)
+part_type_speed(p, 1, 3, 0, 0)
+part_type_direction(p, 0, 360, 0, 0)
+part_type_orientation(p, 0, 360, 0, 0, 0)
+part_type_life(p, 15, 25)
+part_type_color1(p, global.spitColor)
+global.partBubblePop = p
+
+//Player death
+var p = part_type_create()
+part_type_shape(p, pt_shape_sphere)
+part_type_size(p, 0.7, 2, -0.05, 0)
+part_type_speed(p, 1, 4, 0, 0)
+part_type_direction(p, 0, 360, 0, 0)
+part_type_orientation(p, 0, 360, 0, 0, 0)
+part_type_life(p, 40, 50)
+part_type_color1(p, global.spitColor)
+global.partPlayerDeath = p
+
+
+#endregion
+
+#region Tileset setup
 tile_sprite_map = ds_map_create()
 
 function add_tileset_sprites(tileset_id, sprite_ind, tile_size=192) {
@@ -137,3 +154,4 @@ function add_tileset_sprites(tileset_id, sprite_ind, tile_size=192) {
 }
 
 add_tileset_sprites(tileset1, sprSplatterGooTileSet)
+#endregion

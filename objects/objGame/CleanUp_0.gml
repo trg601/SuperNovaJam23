@@ -4,8 +4,9 @@ pauseMenuOptions.cleanup()
 
 if sprite_exists(pauseSprite) sprite_delete(pauseSprite)
 
-part_type_destroy(global.partBubblePop)
+ds_list_destroy(levels)
 
+part_type_destroy(global.partBubblePop)
 part_system_destroy(global.particleSystem)
 
 var key = ds_map_find_first(tile_sprite_map)

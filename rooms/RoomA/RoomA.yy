@@ -91,6 +91,7 @@
     {"name":"inst_74AE4D18","path":"rooms/RoomA/RoomA.yy",},
     {"name":"inst_2B62481B","path":"rooms/RoomA/RoomA.yy",},
     {"name":"inst_59823FC8","path":"rooms/RoomA/RoomA.yy",},
+    {"name":"inst_59D4432E","path":"rooms/RoomA/RoomA.yy",},
   ],
   "isDnd": false,
   "layers": [

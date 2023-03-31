@@ -8,7 +8,7 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 	if keyboard_check(vk_shift) game_end()
 	
 	if !gamePaused {
-		if room == RoomMainMenu exit
+		if room == RoomMainMenu game_end()
 		audio_sound_gain(currentMusic, global.musicVolume * 0.25, 50)
 		
 		instance_deactivate_all(true)

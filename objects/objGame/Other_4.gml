@@ -44,9 +44,25 @@ if layer_exists("Tiles_1") {
 
 pauseMenu.reset()
 
-//Statistics
+alarm[1] = 50
+showTitle = false
 if room != roomPrevious {
 	roomPrevious = room
+	
+	//Check if we are in a defined level
+	var size = ds_list_size(levels)
+	for (var i = 0; i < size; i++) {
+		var lvl = levels[| i]
+		if lvl.room = room {
+			curLevelTitle = lvl.name
+			alarm[1] = 75
+			showTitle = true
+			nextLevel = i < numStoryLevels - 1 ? levels[| i+1].room : RoomMainMenu
+			break
+		}
+	}
+	
+	//Statistics
 	timeRoomStarted = current_time
 	restartsInRoom = 0
 } else restartsInRoom++

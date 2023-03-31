@@ -90,7 +90,7 @@ function Button(label, callback, X1=0, Y1=0, X2=0, Y2=0) constructor {
 	function draw() {
 		var press = keyboard_check_released(vk_enter) ||keyboard_check_released(vk_space) || mouse_check_button_released(mb_left) || gamepad_button_check_pressed(0, gp_face1)
 		if isActive && press
-			func()
+			func(self)
 
 		draw_sprite_stretched(sprMenuButton, isActive, x1, y1, x2 - x1, y2 - y1)
 		draw_text(x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2, text)

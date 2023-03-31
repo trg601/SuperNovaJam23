@@ -31,6 +31,7 @@
     {"name":"objCandy","order":10,"path":"objects/objCandy/objCandy.yy",},
     {"name":"parSlope","order":4,"path":"objects/parSlope/parSlope.yy",},
     {"name":"objButton","order":6,"path":"objects/objButton/objButton.yy",},
+    {"name":"sndCollect","order":3,"path":"sounds/sndCollect/sndCollect.yy",},
     {"name":"sprSpitRope","order":11,"path":"sprites/sprSpitRope/sprSpitRope.yy",},
     {"name":"menu_functions","order":6,"path":"scripts/menu_functions/menu_functions.yy",},
     {"name":"RoomChallenge","order":4,"path":"rooms/RoomChallenge/RoomChallenge.yy",},

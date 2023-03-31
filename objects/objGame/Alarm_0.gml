@@ -1,2 +1,2 @@
-//@desc Restart level
+///@desc Restart level
 room_restart()

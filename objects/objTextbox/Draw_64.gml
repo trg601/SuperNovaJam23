@@ -28,7 +28,7 @@ for (var i = 0; i < nChars; i++) {
 				break
 			case textModifier.finishLevel:
 				if modifier.data > -1 roomTo = modifier.data
-				else roomTo = room_next(room)
+				else roomTo = objGame.nextLevel
 				break
 		}
 		
