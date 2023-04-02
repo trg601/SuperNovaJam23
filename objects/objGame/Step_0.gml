@@ -8,8 +8,10 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 	if keyboard_check(vk_shift) game_end()
 	
 	if !gamePaused {
+		cursor_sprite = -1
+		window_set_cursor(cr_default)
 		if room == RoomMainMenu game_end()
-		audio_sound_gain(currentMusic, global.musicVolume * 0.25, 50)
+		audio_sound_gain(global.currentMusic, global.musicVolume * 0.25, 50)
 		
 		instance_deactivate_all(true)
 		instance_activate_object(objCamera)
@@ -20,11 +22,17 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 		pauseSprite = sprite_create_from_surface(application_surface, 0, 0, surface_get_width(application_surface), surface_get_height(application_surface), 0, 0, 0, 0)
 		
 	} else {
-		audio_sound_gain(currentMusic, global.musicVolume, 50)
+		window_set_cursor(cr_none)
+		audio_sound_gain(global.currentMusic, global.musicVolume, 50)
 		instance_activate_all()
 		with(objCamera) gamePaused = false
 		sprite_delete(pauseSprite)
 		pauseSprite = -1
+		if global.forceRestart room_restart()
+		if roomTo != -1 {
+			room = roomTo
+			roomTo = -1
+		}
 		
 	}
 	
@@ -45,5 +53,6 @@ if gamePaused {
 }
 
 if keyboard_check_pressed(ord("R")) {
+	global.forceRestart = true
 	room_restart()
 }

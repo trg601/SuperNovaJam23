@@ -20,19 +20,21 @@ repeat(maxDist) {
 angle = point_direction(leftX, leftY, rightX, rightY)
 
 if angle == 0 {
-	leftCollide = collision_point(bbox_left, y, parSolid, true, false)
-	rightCollide = collision_point(bbox_right, y, parSolid, true, false)
+	leftCollide = collision_point(bbox_left - 15, y, parSolid, true, false)
+	rightCollide = collision_point(bbox_right + 15, y, parSolid, true, false)
 	
 	if leftCollide && !rightCollide angle = 270
 	if !leftCollide && rightCollide angle = 90
-	if collision_point(x, bbox_top, parSolid, true, false) angle = 180
+	if collision_point(x, bbox_top - 15, parSolid, true, false) {
+		angle = 180
+	}
 }
 
 if place_meeting_platform(0, 1) angle = 0
 
-pushable = true
-effectedByGravity = true
-if angle > 90 && angle < 270 {
+//pushable = true
+//effectedByGravity = true
+if angle >= 90 && angle <= 270 {
 	pushable = false
 	effectedByGravity = false
 	ySpeed = 0

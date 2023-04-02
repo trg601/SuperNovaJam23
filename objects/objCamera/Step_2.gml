@@ -6,20 +6,27 @@ if keyboard_check_pressed(vk_f11){
 
 if !gamePaused {
 	var dx = xto - x
-	if abs(dx) > 10 {
+	if abs(dx) > 5 {
 		x += dx/12
 	}
 
 	var dy = yto - y
-	if abs(dy) > 10 {
+	if abs(dy) > 5 {
 		y += dy/12
 	}
 
 
 	if followPlayer {
 		var player = objPlayer
-		xto = player.x + (player.xSpeed + player.kxSpeed) * 2
-		yto = player.y + player.ySpeed * 2
+		var dist = player.useGPRecticle ? (player.recticleDistance + player.recticleMinDistance) : 400
+		var rx = clamp((player.recticleX - player.x) / dist, -1, 1) * 50
+		var ry = clamp((player.recticleY - player.y) / dist, -1, 1) * 50
+		if player.useGPRecticle && !player.recticleActive {
+			rx = 0
+			ry = 0
+		}
+		xto = player.x + (player.xSpeed + player.kxSpeed) * 2 + rx
+		yto = player.y + player.ySpeed * 2 + ry
 	}
 
 	x = clamp(x, boundLeft, boundRight)

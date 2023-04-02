@@ -11,6 +11,12 @@ with(objCandy) layer_add_instance(other.foregroundLayer, self)
 //Background objects
 if instance_exists(objPlayer) {
 	instance_create_layer(0, 0, "BackgroundI", objParallaxBG)
+	switchMusic(musicTheme)
+	window_set_cursor(cr_none)
+} else {
+	switchMusic(musicPause)
+	cursor_sprite = -1
+	window_set_cursor(cr_default)
 }
 with(objGrate) layer_add_instance(other.behindLayer, self)
 
@@ -50,7 +56,7 @@ pauseMenu.reset()
 
 alarm[1] = 50
 showTitle = false
-if room != roomPrevious {
+if room != roomPrevious || global.forceRestart {
 	roomPrevious = room
 	
 	//Check if we are in a defined level
@@ -68,9 +74,15 @@ if room != roomPrevious {
 	
 	global.playerLastX = -1
 	global.playerLastY = -1
+	global.playerCandyRemaining = -1
+	ds_list_clear(global.playerCandyList)
 	
 	//Statistics
-	timeRoomStarted = current_time
-	restartsInRoom = 0
+	if !global.forceRestart {
+		timeRoomStarted = current_time
+		restartsInRoom = 0
+	}
+	
+	global.forceRestart = false
 } else restartsInRoom++
 	

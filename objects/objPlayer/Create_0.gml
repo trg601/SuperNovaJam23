@@ -1,9 +1,4 @@
 
-if global.playerLastX != -1 {
-	x = global.playerLastX
-	y = global.playerLastY
-}
-
 globPushingSound = -1
 walkingSound = -1
 candyTextColor = make_color_rgb(48, 2, 595)
@@ -72,7 +67,7 @@ candyCount = instance_number(objCandy)
 candyRemaining = candyCount
 
 #region Gamepad
-gamepadAxisDeadZone = 0.25
+gamepadAxisDeadZone = 0.1
 recticleX = 0
 recticleY = 0
 recticleMinDistance = 100
@@ -82,3 +77,15 @@ useGPRecticle = false
 mouse_xprev = -1
 mouse_yprev = -1
 #endregion
+
+
+if global.playerLastX != -1 {
+	x = global.playerLastX
+	y = global.playerLastY
+	candyRemaining = global.playerCandyRemaining
+	for (var i = 0; i < ds_list_size(global.playerCandyList); i++) {
+		var pos = global.playerCandyList[| i]
+		var ins = instance_position(pos.x, pos.y, objCandy)
+		instance_destroy(ins)
+	}
+}

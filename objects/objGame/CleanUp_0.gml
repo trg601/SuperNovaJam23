@@ -4,6 +4,7 @@ pauseMenuOptions.cleanup()
 
 if sprite_exists(pauseSprite) sprite_delete(pauseSprite)
 
+ds_list_destroy(global.playerCandyList)
 ds_list_destroy(levels)
 
 part_type_destroy(global.partBubblePop)

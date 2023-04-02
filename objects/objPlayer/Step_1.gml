@@ -51,6 +51,7 @@ if recticleActive {
 	recticleY = mouse_y
 }
 
+cursor_sprite = useGPRecticle ? -1 : sprRecticle
 
 addX = 0
 addY = 0

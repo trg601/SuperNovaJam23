@@ -34,6 +34,9 @@
     "name": "sprSpitProjectile",
     "path": "sprites/sprSpitProjectile/sprSpitProjectile.yy",
   },
-  "spriteMaskId": null,
+  "spriteMaskId": {
+    "name": "sprSpitProjectileMask",
+    "path": "sprites/sprSpitProjectileMask/sprSpitProjectileMask.yy",
+  },
   "visible": true,
 }

@@ -8,14 +8,13 @@ ds_list_clear(wordLengths)
 ds_list_clear(wordPositions)
 ds_list_clear(modifiers)
 
-var lastWordPos = 0, modifierLength = 0
+var lastWordPos = 0
 var i, prevChar = "", indexMod = 0, lastValidPos = 0
 for (i = 1; i < nCharsTotal + 1; i++) {
 	var char = string_char_at(str, i)
 	switch (char) {
 		case " ": {
-			var len = i - lastWordPos - modifierLength
-			modifierLength = 0
+			var len = i - lastWordPos
 			ds_list_add(wordLengths, len)
 			ds_list_add(wordPositions, i - 1 - indexMod)
 		
@@ -23,12 +22,12 @@ for (i = 1; i < nCharsTotal + 1; i++) {
 		} break
 		case "[": {
 			indexMod++
-			modifierLength++
+			lastWordPos++
 				
 			var cstr = ""
 			for (var j = i + 1; j < nCharsTotal + 1; j++) {
 				indexMod++
-				modifierLength++
+				lastWordPos++
 				var cc = string_char_at(str, j)
 				if cc == "]" break
 				cstr += cc
@@ -55,6 +54,9 @@ for (i = 1; i < nCharsTotal + 1; i++) {
 						case "cyan": _data = make_color_rgb(89, 255, 238) break
 						case "lime green": _data = make_color_rgb(99, 255, 99) break
 						case "black": _data = c_black break
+						case "blue": _data = c_blue break 
+						case "purple": _data = c_purple break
+						case "orange": _data = c_orange break
 					}
 					if isCancel _data = -1
 				} break

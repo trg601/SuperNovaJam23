@@ -236,6 +236,7 @@ if y > room_height {
 if sprite_index == sprPlayerWalk {
 	if walkingSound == -1
 		walkingSound = audio_play_sound(sndWalk, 0, true, global.soundVolume)	
+	if !onGround sprite_index = sprPlayerIdle
 } else if walkingSound != -1 {
 	audio_stop_sound(walkingSound)
 	walkingSound = -1	

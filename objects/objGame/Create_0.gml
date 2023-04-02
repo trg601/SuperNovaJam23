@@ -7,6 +7,8 @@ room = global.roomGoto
 roomPrevious = -1
 timeRoomStarted = 0
 restartsInRoom = 0
+global.forceRestart = false
+roomTo = -1
 
 //Window/View/Camera setup
 global.defWidth = 1366
@@ -26,6 +28,10 @@ global.worldGravity = 1
 global.terminalVelocity = 30
 global.tileSize = 128
 global.spitColor = c_ltgray//make_color_rgb(71, 255, 231)
+global.playerLastX = -1
+global.playerLastY = -1
+global.playerCandyRemaining = -1
+global.playerCandyList = ds_list_create()
 
 foregroundLayer = -1
 backgroundLayer = -1
@@ -38,9 +44,19 @@ global.particleSystem  = part_system_create_layer("Instances", true)
 //Music  
 global.musicVolume = 1
 global.soundVolume = 1
-currentMusic = audio_play_sound(musicTheme, 10, true, global.musicVolume)
-global.playerLastX = -1
-global.playerLastY = -1
+global.curSong = musicTheme
+global.currentMusic = audio_play_sound(global.curSong, 10, true, global.musicVolume)
+
+function switchMusic(musicId) {
+	if global.curSong == musicId
+		exit
+	if global.currentMusic != -1
+		audio_stop_sound(global.currentMusic)
+	global.curSong = musicId
+	if musicId != -1
+		global.currentMusic = audio_play_sound(musicId, 10, true, global.musicVolume)
+	else global.currentMusic = -1
+}
 
 #region Level Setup
 
@@ -48,13 +64,13 @@ levels = ds_list_create()
 curLevelTitle = ""
 showTitle = false
 nextLevel = -1
-numStoryLevels = 4
+numStoryLevels = 5
 
+ds_list_add(levels, { name: "Tutorial", room: RoomTutorial })
 ds_list_add(levels, { name: "Simple Sanctuary", room: RoomA })
-ds_list_add(levels, { name: "Puzzling Prairie", room: RoomTest })
-ds_list_add(levels, { name: "Interesting Isles", room: RoomTest })
-ds_list_add(levels, { name: "Troubling Territory", room: RoomTest })
-ds_list_add(levels, { name: "Challenge Level", room: RoomChallenge })
+ds_list_add(levels, { name: "Puzzling Prairie", room: RoomB })
+ds_list_add(levels, { name: "Interesting Isles", room: RoomC })
+ds_list_add(levels, { name: "Troubling Territory", room: RoomChallenge })
 
 #endregion
 
@@ -67,7 +83,7 @@ pauseMenuMain.addButton(new Button("Keep playing!", function() {
 	togglePause = true
 }))
 pauseMenuMain.addButton(new Button("Restart level", function() {
-	room_restart()
+	global.forceRestart = true
 	togglePause = true
 }))
 pauseMenuMain.addButton(new Button("Options", function() {
@@ -75,7 +91,7 @@ pauseMenuMain.addButton(new Button("Options", function() {
 }))
 pauseMenuMain.addButton(new Button("Quit", function() {
 	if room == RoomMainMenu game_end()
-	else room = RoomMainMenu
+	else roomTo = RoomMainMenu
 	togglePause = true
 }))
 

@@ -12,11 +12,11 @@ y -= posY
 if !instance_exists(objPlayer) || isIntro exit
 
 if point_distance(x, y, objPlayer.x, objPlayer.y) < 200 && !instance_exists(objTextbox) {
-	var yy = y - 40
-	draw_sprite(sprKey, 0, x + 64, yy)
+	var xx = x + 64 * image_xscale, yy = y - 40
+	draw_sprite(sprKey, 0, xx, yy)
 	var text = objPlayer.useGPRecticle ? "X" : "E"
 	draw_set_halign(fa_center)
-	draw_text(x + 64, yy - 40, text)
+	draw_text(xx, yy - 40, text)
 	draw_set_halign(fa_left)
 	
 	if objPlayer.pressedInteract && objPlayer.onGround {

@@ -67,13 +67,14 @@ function Menu() constructor {
 	}
 }
 
-function Button(label, callback, X1=0, Y1=0, X2=0, Y2=0) constructor {
+function Button(label, callback, sprite=sprMenuButton, X1=0, Y1=0, X2=0, Y2=0) constructor {
 	text = label
 	func = callback
 	x1 = X1
 	y1 = Y1
 	x2 = X2
 	y2 = Y2
+	spr = sprite
 	isActive = false
 	
 	function setDimensions(X1, Y1, X2, Y2) {
@@ -92,7 +93,7 @@ function Button(label, callback, X1=0, Y1=0, X2=0, Y2=0) constructor {
 		if isActive && press
 			func(self)
 
-		draw_sprite_stretched(sprMenuButton, isActive, x1, y1, x2 - x1, y2 - y1)
+		draw_sprite_stretched(spr, isActive, x1, y1, x2 - x1, y2 - y1)
 		draw_text(x1 + (x2 - x1) / 2, y1 + (y2 - y1) / 2, text)
 	}
 }

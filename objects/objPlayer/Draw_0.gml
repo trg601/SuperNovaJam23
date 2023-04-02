@@ -33,5 +33,6 @@ if spitCharge > spitChargeNecessaryToShoot {
 
 //Draw recticle
 if recticleActive {
-	draw_circle(recticleX, recticleY, 25, 1)	
+	draw_sprite(sprRecticle, 0, recticleX, recticleY)
+	cursor_sprite = -1
 }
