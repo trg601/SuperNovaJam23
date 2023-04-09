@@ -1,3 +1,4 @@
+
 menuMain = new Menu()
 menuMain.addButton(new Button("", function() {
 	room = RoomTutorial

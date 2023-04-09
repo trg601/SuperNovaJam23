@@ -6,22 +6,22 @@ holdSpit = false
 pressedGrapple = false
 pressedInteract = false
 if !global.freezeInput {
-	if keyboard_check(ord("D")) inputX = 1
-	if keyboard_check(ord("A")) inputX = -1
+	if keyboard_check(ord("D")) || keyboard_check(vk_right) inputX = 1
+	if keyboard_check(ord("A")) || keyboard_check(vk_left) inputX = -1
 	if abs(gamepad_axis_value(0, gp_axislh)) > gamepadAxisDeadZone {
 		inputX = sign(gamepad_axis_value(0, gp_axislh))
 		useGPRecticle = true
 	}
 	
-	if keyboard_check(vk_space) || gamepad_button_check(0, gp_face1)
+	if keyboard_check(vk_space) || gamepad_button_check(0, gp_face1) || keyboard_check(vk_up)
 		holdJump = true
 	if mouse_check_button(mb_left) || gamepad_button_check(0, gp_shoulderl)
 		holdSpit = true
-	if mouse_check_button_released(mb_right) || gamepad_button_check_released(0, gp_shoulderr)
+	if mouse_check_button_released(mb_right) || gamepad_button_check_released(0, gp_shoulderr) || keyboard_check_released(ord("V"))
 		pressedGrapple = true
 	if keyboard_check(ord("E")) || gamepad_button_check(0, gp_face3)
 		pressedInteract = true
-	if keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1) {
+	if keyboard_check_pressed(vk_space) || gamepad_button_check_pressed(0, gp_face1) || keyboard_check_pressed(vk_up) {
 		pressedJump = true
 		alarm[1] = jumpLeeway
 	}

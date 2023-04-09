@@ -12,6 +12,12 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 		window_set_cursor(cr_default)
 		if room == RoomMainMenu game_end()
 		audio_sound_gain(global.currentMusic, global.musicVolume * 0.25, 50)
+		with(objPlayer) {
+			if walkingSound != -1
+				audio_sound_gain(walkingSound, 0, 50)
+			if globPushingSound != -1
+				audio_sound_gain(globPushingSound, 0, 50)
+		}
 		
 		instance_deactivate_all(true)
 		instance_activate_object(objCamera)
@@ -25,10 +31,17 @@ if keyboard_check_pressed(vk_escape) || gamepad_button_check_pressed(0, gp_start
 		window_set_cursor(cr_none)
 		audio_sound_gain(global.currentMusic, global.musicVolume, 50)
 		instance_activate_all()
+		with(objPlayer) {
+			if walkingSound != -1
+				audio_sound_gain(walkingSound, global.soundVolume, 50)
+			if globPushingSound != -1
+				audio_sound_gain(globPushingSound, global.soundVolume, 50)
+		}
 		with(objCamera) gamePaused = false
 		sprite_delete(pauseSprite)
 		pauseSprite = -1
-		if global.forceRestart room_restart()
+		if global.forceRestart
+			room_restart()
 		if roomTo != -1 {
 			room = roomTo
 			roomTo = -1

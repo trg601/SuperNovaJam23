@@ -1,6 +1,12 @@
 
 if state == playerState.SWING {
 	draw_line_textured(sprSpitRope, x, y, grappleX, grappleY)
+	
+	//Draw glob at end of rope
+	var angle = 180
+	if collision_point(grappleX + 20, grappleY + 5, objGrappleBlock, false, false) angle = 90
+	else if collision_point(grappleX - 20, grappleY + 5, objGrappleBlock, false, false) angle = 270
+	draw_sprite_ext(sprSpitObject, 0, grappleX, grappleY, 0.75, 0.75, angle, c_white, 1)
 }
 
 draw_sprite_ext(sprite_index, image_index, x + addX, y + addY, faceX * squishX, squishY, image_angle, image_blend, image_alpha)

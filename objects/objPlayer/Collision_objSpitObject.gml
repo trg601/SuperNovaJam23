@@ -6,7 +6,8 @@ if state == playerState.SWING {
 		swingVelocity += 5
 }
 else if !onGround { //Bounce off
-	audio_play_sound(sndBounceGlob, 0, false, global.soundVolume)
+	if !audio_is_playing(sndBounceGlob)
+		audio_play_sound(sndBounceGlob, 0, false, global.soundVolume)
 	if bbox_bottom > other.bbox_bottom
 		ySpeed = other.globBounceForce * 0.5
 	else if ySpeed > 0 {

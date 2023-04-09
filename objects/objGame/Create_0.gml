@@ -27,7 +27,7 @@ global.freezeInput = false
 global.worldGravity = 1 
 global.terminalVelocity = 30
 global.tileSize = 128
-global.spitColor = c_ltgray//make_color_rgb(71, 255, 231)
+global.spitColor = make_color_rgb(218, 171, 222)
 global.playerLastX = -1
 global.playerLastY = -1
 global.playerCandyRemaining = -1
@@ -105,7 +105,7 @@ pauseMenuOptions.addButton(new Button("Toggle fullscreen", function() {
 }))
 pauseMenuOptions.addButton(new Button("Toggle music", function() {
 	global.musicVolume = global.musicVolume > 0 ? 0 : 1
-	audio_sound_gain(currentMusic, global.musicVolume, 50)
+	audio_sound_gain(global.currentMusic, global.musicVolume, 50)
 }))
 pauseMenuOptions.addButton(new Button("Toggle sound", function() {
 	global.soundVolume = global.soundVolume > 0 ? 0 : 1

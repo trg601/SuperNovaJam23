@@ -10,7 +10,7 @@
   "bitRate": 128,
   "compression": 2,
   "conversionMode": 0,
-  "duration": 1.6196,
+  "duration": 0.78365,
   "parent": {
     "name": "Sounds",
     "path": "folders/Sounds.yy",
@@ -19,5 +19,5 @@
   "sampleRate": 44100,
   "soundFile": "sndBounceGlob.mp3",
   "type": 0,
-  "volume": 0.07,
+  "volume": 1.0,
 }

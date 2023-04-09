@@ -3,8 +3,8 @@
   "resourceVersion": "1.0",
   "name": "sprBackgroundClouds",
   "bbox_bottom": 1079,
-  "bbox_left": 30,
-  "bbox_right": 1356,
+  "bbox_left": 29,
+  "bbox_right": 1357,
   "bbox_top": 0,
   "bboxMode": 0,
   "collisionKind": 1,
@@ -13,14 +13,14 @@
   "edgeFiltering": false,
   "For3D": false,
   "frames": [
-    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"2ddf3d6e-515b-48e7-8aaf-217ba7d90f0a",},
+    {"resourceType":"GMSpriteFrame","resourceVersion":"1.1","name":"4ab49bbb-c3b6-4d22-a438-e4e840366c00",},
   ],
   "gridX": 0,
   "gridY": 0,
   "height": 1080,
   "HTile": false,
   "layers": [
-    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"a7b1219b-051a-49b4-a69d-c22a2f2fcbef","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
+    {"resourceType":"GMImageLayer","resourceVersion":"1.0","name":"0ff42239-51ad-40b7-9eb9-e4acddcecda9","blendMode":0,"displayName":"default","isLocked":false,"opacity":100.0,"visible":true,},
   ],
   "nineSlice": null,
   "origin": 0,
@@ -54,7 +54,7 @@
     "timeUnits": 1,
     "tracks": [
       {"resourceType":"GMSpriteFramesTrack","resourceVersion":"1.0","name":"frames","builtinName":0,"events":[],"inheritsTrackColour":true,"interpolation":1,"isCreationTrack":false,"keyframes":{"resourceType":"KeyframeStore<SpriteFrameKeyframe>","resourceVersion":"1.0","Keyframes":[
-            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"2ddf3d6e-515b-48e7-8aaf-217ba7d90f0a","path":"sprites/sprBackgroundClouds/sprBackgroundClouds.yy",},},},"Disabled":false,"id":"3edf0e30-3a48-4f93-a3e7-16f4d3184606","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
+            {"resourceType":"Keyframe<SpriteFrameKeyframe>","resourceVersion":"1.0","Channels":{"0":{"resourceType":"SpriteFrameKeyframe","resourceVersion":"1.0","Id":{"name":"4ab49bbb-c3b6-4d22-a438-e4e840366c00","path":"sprites/sprBackgroundClouds/sprBackgroundClouds.yy",},},},"Disabled":false,"id":"36ea0d7e-4fed-4136-af58-c6b55a1e885c","IsCreationKey":false,"Key":0.0,"Length":1.0,"Stretch":false,},
           ],},"modifiers":[],"spriteId":null,"trackColour":0,"tracks":[],"traits":0,},
     ],
     "visibleRange": null,

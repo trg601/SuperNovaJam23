@@ -6,11 +6,6 @@ if place_meeting(x, y+1, parSolid) || place_meeting_platform(0, 1) {
 	alarm[0] = coyoteTime
 	if ySpeed > 5 sprite_index = sprPlayerLand 
 	ySpeed = 0
-	
-	if !place_meeting(x, y+1, objGhostBlock) {
-		global.playerLastX = x
-		global.playerLastY = y	
-	}
 }
 
 //State handling
@@ -228,6 +223,8 @@ if (holdSpit || spitCharge > spitChargeNecessaryToShoot) && (!useGPRecticle || r
 
 #endregion
 
+x = clamp(x, 0, room_width)
+
 if y > room_height {
 	dead = true
 	instance_destroy()
@@ -235,7 +232,7 @@ if y > room_height {
 
 if sprite_index == sprPlayerWalk {
 	if walkingSound == -1
-		walkingSound = audio_play_sound(sndWalk, 0, true, global.soundVolume)	
+		walkingSound = audio_play_sound(sndWalk, 0, true, global.soundVolume)
 	if !onGround sprite_index = sprPlayerIdle
 } else if walkingSound != -1 {
 	audio_stop_sound(walkingSound)

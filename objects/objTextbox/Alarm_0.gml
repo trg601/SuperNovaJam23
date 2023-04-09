@@ -50,7 +50,11 @@ switch(dialogueId) {
 		texts = ["Hold [c=blue]left mouse[/c] or [c=blue]left bumper[/c] to charge your spit, aiming with [c=blue]the mouse[/c] or [c=blue]right stick[/c]- Release to shoot a spit glob!", "Pressing [c=blue]space[/c] or [c=blue]A[/c] right as you're about to hit a glob will launch you high!"]
 	break
 	case 52:
-		texts = ["Press [c=blue]right mouse[/c] or [c=blue]right bumper[/c] to shoot a long spit that can grapple onto [c=purple]hanging mushrooms[/c] ", "Swing back and forth with left/right to build momentum and press jump to launch off!"]
+		texts = [
+			"Touch a gravestone to save your progress!",
+			"Press [c=blue]right mouse[/c] or [c=blue]right bumper[/c] to shoot a long spit that can grapple onto [c=purple]hanging mushrooms[/c] ",
+			"Swing back and forth with left/right to build momentum and press jump to launch off!"
+		]
 	break
 	case 53:
 		texts = ["Push a spit glob onto a [c=lime green]mushroom button[/c] to activate it! If you do, some [c=lime green]friendly ghosts[/c] may help you out!"]

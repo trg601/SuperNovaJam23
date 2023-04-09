@@ -72,11 +72,6 @@ if room != roomPrevious || global.forceRestart {
 		}
 	}
 	
-	global.playerLastX = -1
-	global.playerLastY = -1
-	global.playerCandyRemaining = -1
-	ds_list_clear(global.playerCandyList)
-	
 	//Statistics
 	if !global.forceRestart {
 		timeRoomStarted = current_time
