@@ -21,7 +21,7 @@ if point_distance(x, y, objPlayer.x, objPlayer.y) < 200 && !instance_exists(objT
 	
 	if objPlayer.pressedInteract && objPlayer.onGround {
 		var ins = instance_create_layer(0, 0, "guiLayer", objTextbox)
-		if objPlayer.candyRemaining == 0
+		if objPlayer.candyRemaining <= 0
 			ins.dialogueId = dialogueId
 		else
 			ins.dialogueId = 0

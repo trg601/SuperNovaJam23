@@ -57,8 +57,6 @@ pauseMenu.reset()
 alarm[1] = 50
 showTitle = false
 if room != roomPrevious || global.forceRestart {
-	roomPrevious = room
-	
 	//Check if we are in a defined level
 	var size = ds_list_size(levels)
 	for (var i = 0; i < size; i++) {
@@ -72,6 +70,11 @@ if room != roomPrevious || global.forceRestart {
 		}
 	}
 	
+	global.playerLastX = -1
+	global.playerLastY = -1
+	global.playerCandyRemaining = -1
+	ds_list_clear(global.playerCandyList)
+	
 	//Statistics
 	if !global.forceRestart {
 		timeRoomStarted = current_time
@@ -80,4 +83,7 @@ if room != roomPrevious || global.forceRestart {
 	
 	global.forceRestart = false
 } else restartsInRoom++
+
+with(objPlayer) event_user(0)
 	
+roomPrevious = room
